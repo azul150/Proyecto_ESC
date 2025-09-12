@@ -1,0 +1,413 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Encabezado principal */
+.contenedor0 {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor0 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenedor0 h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Cita destacada */
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+
+.contenedor h3:last-child {
+    text-align: justify;
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #000000;
+    font-style: normal;
+    margin-top: 10px;
+    font-weight: normal; /*Quita la negrita */
+}
+/* Cita destacada */
+.refe {
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #555;
+}
+
+.refe p {
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #2c3e50;
+    font-weight: normal; /*Quita la negrita */
+}
+.refe h3{
+    text-align: justify;
+    font-size: 1.3rem;
+    color: #000000;
+    font-style: normal;
+    margin-top: 10px;
+}
+.refe h4{
+    text-align: right;
+    font-size: 1.3rem;
+    color: #000000;
+    font-style: normal;
+    margin-top: 10px;
+}
+/* ************************************************************************************************ */
+/* Cita destacada de TEORIAS */
+.teorias {
+    background-color: #fff;
+    text-align: justify; /* Esto justifica los párrafos normales */
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #34db5e;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+.teorias h3 {
+    text-align: justify; /* Justifica los títulos también */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.teorias p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/* TEORIAS1 */
+.teorias1 {
+    background-color: #fff;
+    text-align: justify; /* Esto justifica los párrafos normales */
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #30aef7;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+.teorias1 h3 {
+    text-align: justify; /* Justifica los títulos también */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.teorias1 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/* TEORIAS 2 */
+.teorias2 {
+    background-color: #fff;
+    text-align: justify; /* Esto justifica los párrafos normales */
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #eb0f0f;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+.teorias2 h3 {
+    text-align: justify; /* Justifica los títulos también */
+    font-weight: bold;
+     font-size: 1.5rem;
+}
+.teorias2 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/* TEORIAS 3 */
+.teorias3 {
+    background-color: #fff;
+    text-align: justify; /* Esto justifica los párrafos normales */
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #d9ff2f;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+.teorias3 h3 {
+    text-align: justify; /* Justifica los títulos también */
+    font-weight: bold;
+     font-size: 1.5rem;
+}
+.teorias3 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/* TEORIAS 4 */
+.teorias4 {
+    background-color: #fff;
+    text-align: justify; /* Esto justifica los párrafos normales */
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #fa12d3;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+}
+.teorias4 h3 {
+    text-align: justify; /* Justifica los títulos también */
+    font-weight: bold;
+     font-size: 1.5rem;
+}
+.teorias4 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+/* ************************************************************************************************ */
+/* Contenido de texto */
+.conte0 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.conte0 p, .conte0 p1 {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.conte0 p2{
+    text-align: justify;
+    font-weight: bold; /* Negrita */
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.conte0 p1 {
+    display: block;
+}
+
+/* Sección de Tipos de liderazgo */
+.objetivos {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ff771ce0;
+}
+
+.objetivos h4 {
+    font-size: 1.4rem;
+    color: #ff771ce0;
+    margin-bottom: 10px;
+}
+.objetivos p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+.img-centro {
+    display: block;
+    margin: 20px auto; /* la centra horizontalmente */
+}
+
+/* Liderazgo Tipos */
+.TiposL {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #e98181e0;
+}
+
+.TiposL h4 {
+    font-size: 1.4rem;
+    color: #e98181e0;
+    margin-bottom: 10px;
+}
+.TiposL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+.img-centro {
+    display: block;
+    margin: 20px auto; /* la centra horizontalmente */
+}
+
+/* Liderazgo Estilos */
+.EstilosL {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ad00f1e0;
+}
+
+.EstilosL h4 {
+    font-size: 1.4rem;
+    color: #ad00f1e0;
+    margin-bottom: 10px;
+}
+.EstilosL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+/*TABLA DE ESTILOS*/
+.tabla-contenedor {
+  overflow-x: auto; /* útil para pantallas pequeñas */
+  margin: 20px 0;
+}
+
+.tabla-3col {
+  width: 100%;
+  border-collapse: collapse; /* 🔹 Une los bordes para que no se dupliquen */
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+}
+
+.tabla-3col th, 
+.tabla-3col td {
+  border: 1px solid #000; /* 🔹 Borde negro visible */
+  padding: 12px;
+}
+
+.tabla-3col th {
+  background-color: #4071a1;
+  color: #fff;
+  font-weight: bold;
+}
+
+.tabla-3col tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla-3col tr:hover {
+  background-color: #e6f2ff;
+}
+
+/**************************************************************************************++*/
+
+/* Texto final */
+body > p {
+    text-align: center;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .contenedor, .conte0, .objetivos {
+        padding: 20px;
+    }
+    
+    .contenedor h3:first-child {
+        font-size: 1.2rem;
+    }
+}
+
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-arrow button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: white;
+  color: #3498db;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pagination-arrow button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-arrow span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
