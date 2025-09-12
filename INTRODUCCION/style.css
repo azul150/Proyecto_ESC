@@ -174,60 +174,168 @@ body > p {
     font-size: 0.9rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-    
-    .contenedor0 h1 {
-        font-size: 1.8rem;
-    }
-    
-    .contenedor0 h2 {
-        font-size: 1.2rem;
-    }
-    
-    .contenedor, .conte0, .objetivos {
-        padding: 20px;
-    }
-    
-    .contenedor h3:first-child {
-        font-size: 1.2rem;
-    }
-}
+/* =========================== */
+        /* MEDIA QUERIES RESPONSIVE */
+        /* =========================== */
+        @media (max-width: 1024px) {
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.3rem;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.3rem;
+            }
+        }
 
-.pagination-arrow {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-family: Arial, sans-serif;
-}
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .contenedor0 {
+                padding: 20px 15px;
+            }
+            
+            .contenedor0 h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contenedor0 h2 {
+                font-size: 1.3rem;
+            }
+            
+            .contenedor, .conte0, .objetivos, 
+            .temario, .esquema {
+                padding: 20px;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .contenedor h3:last-child {
+                font-size: 1.1rem;
+            }
+            
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.3rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.5rem;
+            }
+            
+            .pagination-arrow {
+                gap: 15px;
+            }
+            
+            .pagination-arrow button {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .pagination-arrow span {
+                font-size: 16px;
+            }
+        }
 
-.pagination-arrow button {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #3498db;
-  border-radius: 8px;
-  background-color: white;
-  color: #3498db;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+            
+            .contenedor0 {
+                padding: 15px 10px;
+            }
+            
+            .contenedor0 h1 {
+                font-size: 1.6rem;
+            }
+            
+            .contenedor0 h2 {
+                font-size: 1.1rem;
+            }
+            
+            .contenedor, .conte0, .objetivos, 
+            .temario, .esquema {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+            
+            .contenedor h3:last-child {
+                font-size: 1rem;
+            }
+            
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.2rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.3rem;
+            }
+            
+            .pagination-arrow {
+                gap: 10px;
+                margin: 25px 0;
+            }
+            
+            .pagination-arrow button {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .pagination-arrow span {
+                font-size: 14px;
+            }
+            
+            body > p {
+                font-size: 0.8rem;
+            }
+        }
 
-.pagination-arrow button:hover {
-  background-color: #3498db;
-  color: white;
-  transform: scale(1.1);
-}
-
-.pagination-arrow span {
-  font-size: 18px;
-  font-weight: bold;
-}
+        @media (max-width: 360px) {
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1rem;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1rem;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.1rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.2rem;
+            }
+            
+            .pagination-arrow button {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
 
