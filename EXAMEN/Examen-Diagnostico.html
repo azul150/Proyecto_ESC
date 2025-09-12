@@ -135,6 +135,178 @@
             border-left: 4px solid #4caf50;
             display: none;
         }
+         /* =========================== */
+        /* MEDIA QUERIES RESPONSIVE */
+        /* =========================== */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1.1rem;
+                padding: 15px;
+                line-height: 1.5;
+            }
+            
+            .header {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .instructions {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .question {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+            
+            .options {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .true-false {
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .section-title {
+                padding: 8px;
+                margin: 20px 0 12px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.2rem;
+            }
+            
+            button {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+            
+            .module-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .results {
+                padding: 20px;
+            }
+            
+            .score-display {
+                font-size: 1.3rem;
+            }
+            
+            .percentage {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 1rem;
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header h2 {
+                font-size: 1.1rem;
+            }
+            
+            .question {
+                padding: 10px;
+            }
+            
+            .true-false {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            
+            .options {
+                gap: 8px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.1rem;
+            }
+            
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+            }
+            
+            .module-btn {
+                width: 90%;
+                padding: 12px;
+            }
+            
+            .score-display {
+                font-size: 1.2rem;
+            }
+            
+            .percentage {
+                font-size: 1.5rem;
+            }
+            
+            input[type="radio"] {
+                transform: scale(1.1);
+                margin-right: 10px;
+            }
+            
+            label {
+                display: flex;
+                align-items: center;
+                padding: 5px 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                font-size: 0.95rem;
+            }
+            
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            
+            .header h2 {
+                font-size: 1rem;
+            }
+            
+            .score-display {
+                font-size: 1.1rem;
+            }
+            
+            .percentage {
+                font-size: 1.4rem;
+            }
+            
+            .module-btn {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -432,4 +604,5 @@
     });
     </script>
 </body>
+
 </html>
