@@ -1,0 +1,413 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Encabezado principal */
+.contenedor0 {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor0 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenedor0 h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Cita destacada */
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #555;
+}
+
+.contenedor h3:first-child {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.contenedor h3:last-child {
+    text-align: right;
+    font-size: 1.3rem;
+    color: #000000;
+    font-style: normal;
+    margin-top: 10px;
+}
+
+/* Contenido de texto */
+.conte0 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.conte0 p, .conte0 p1 {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.conte0 p1 {
+    display: block;
+}
+
+/* Sección de objetivos */
+.objetivos {
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #2ecc71;
+}
+
+.objetivos h4 {
+    font-size: 1.4rem;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.objetivos p2 {
+    color: #a8a8a8;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.objetivos p1 {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+/*TEMARIO*/
+.temario {
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #023dbb;
+}
+
+.temario h4 {
+    font-size: 1.5rem;
+    color: #023dbb;
+    margin-bottom: 10px;
+}
+
+.temario p2 {
+    color: #a8a8a8;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.temario p1 {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/*ESQUEMA*/
+.esquema {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ffa702;
+    height: max-content;
+}
+
+.esquema h4 {
+    font-size: 1.5rem;
+    color: #ffa702;
+    margin-bottom: 10px;
+}
+
+.esquema p2 {
+    color: #a8a8a8;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+/* Texto final */
+body > p {
+    text-align: center;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/**/
+.MC {
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #1b9603;
+}
+
+.MC h4 {
+    font-size: 1.5rem;
+    color: #1b9603;
+    margin-bottom: 10px;
+}
+.MC img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+/* =========================== */
+        /* MEDIA RESPONSIVE */
+        /* =========================== */
+        @media (max-width: 1024px) {
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.3rem;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.3rem;
+            }
+            
+            .MC {
+                font-size: 1.3rem;
+                padding: 25px;
+            }
+            
+            .MC h4 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .contenedor0 {
+                padding: 20px 15px;
+            }
+            
+            .contenedor0 h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contenedor0 h2 {
+                font-size: 1.3rem;
+            }
+            
+            .contenedor, .conte0, .objetivos, 
+            .temario, .esquema {
+                padding: 20px;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.2rem;
+            }
+            
+            .contenedor h3:last-child {
+                font-size: 1.1rem;
+            }
+            
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.3rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.5rem;
+            }
+            
+            .MC {
+                font-size: 1.2rem;
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .MC h4 {
+                font-size: 1.3rem;
+            }
+            
+            .MC img {
+                margin: 12px auto;
+            }
+            
+            .pagination-arrow {
+                gap: 15px;
+            }
+            
+            .pagination-arrow button {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .pagination-arrow span {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+            
+            .contenedor0 {
+                padding: 15px 10px;
+            }
+            
+            .contenedor0 h1 {
+                font-size: 1.6rem;
+            }
+            
+            .contenedor0 h2 {
+                font-size: 1.1rem;
+            }
+            
+            .contenedor, .conte0, .objetivos, 
+            .temario, .esquema {
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+            
+            .contenedor h3:last-child {
+                font-size: 1rem;
+            }
+            
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.2rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.3rem;
+            }
+            
+            .MC {
+                font-size: 1.1rem;
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .MC h4 {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .MC img {
+                margin: 10px auto;
+                border-radius: 6px;
+            }
+            
+            .pagination-arrow {
+                gap: 10px;
+                margin: 25px 0;
+            }
+            
+            .pagination-arrow button {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .pagination-arrow span {
+                font-size: 14px;
+            }
+            
+            body > p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .conte0 p, .conte0 p1,
+            .objetivos p1, .temario p1 {
+                font-size: 1rem;
+            }
+            
+            .contenedor h3:first-child {
+                font-size: 1rem;
+            }
+            
+            .objetivos h4, .temario h4, .esquema h4 {
+                font-size: 1.1rem;
+            }
+            
+            .objetivos p2, .temario p2, .esquema p2 {
+                font-size: 1.2rem;
+            }
+            
+            .MC {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .MC h4 {
+                font-size: 1.1rem;
+            }
+            
+            .pagination-arrow button {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODULO III</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    background-color: #f5f5f5; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.Titulo { 
+    text-align: center; 
+    padding: 30px 20px; 
+    margin-bottom: 20px; 
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%); 
+    color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.Titulo h1 { 
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    margin-bottom: 15px; 
+    font-weight: 600;
+}
+.Titulo h2 { 
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+    font-weight: 400; 
+    opacity: 0.9;
+}
+.citaT-Autor { 
+    background-color: #fff; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #555;
+}
+.citaT-Autor h3:first-child { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    margin-bottom: 15px; 
+    line-height: 1.5; 
+    color: #2c3e50;
+}
+.citaT-Autor h3:last-child { 
+    text-align: right; 
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
+    color: #000; 
+    font-style: normal; 
+    margin-top: 10px;
+}
+.Parrafo { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.Parrafo h2 { 
+    font-size: clamp(1.3rem, 3vw, 1.6rem); 
+    margin-bottom: 15px; 
+    color: #2c3e50;
+}
+.Parrafo p { 
+    text-align: justify; 
+    margin-bottom: 20px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.7;
+}
+.Parrafo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.Referencia { 
+    background-color: #fff; 
+    text-align: justify; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #000;
+}
+.Referencia h3 { 
+    text-align: justify; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+.Tema { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    border-top: 4px solid #ff771c;
+}
+.Tema h4 { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    color: #ff771c; 
+    margin-bottom: 10px;
+}
+.Tema p { 
+    display: block; 
+    margin-top: 15px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.6;
+}
+.Tema img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.container-tarjet { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+.tarjetas { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    margin-bottom: 15px; 
+    flex: 1 1 300px; 
+    max-width: 100%;
+}
+.tarjetas:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-color: #2c3e50;
+}
+.header-tarjet { 
+    background-color: #5493d1; 
+    color: white; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.header-tarjet h3 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0;
+}
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 1000; 
+    align-items: center; 
+    justify-content: center;
+}
+.modal-overlay.activo { 
+    display: flex;
+}
+.modal-teoria { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    max-width: 90%; 
+    width: 900px;
+    max-height: 85vh; 
+    overflow-y: auto; 
+    position: relative; 
+    animation: modalAppear 0.3s ease-out;
+}
+.modal-teoria-header { 
+    background-color: #6695c4; 
+    color: white; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-radius: 12px 12px 0 0;
+}
+.modal-teoria-contenido { 
+    padding: 25px; 
+    font-size: clamp(14px, 2vw, 19px); 
+    line-height: 1.7;
+}
+.modal-teoria-contenido img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+.flecha-externa { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.8); 
+    border: none; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: all 0.3s ease;
+}
+.flecha-externa:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+.flecha-izquierda { left: 80px; }
+.flecha-derecha { right: 80px; }
+.cerrar-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+}
+
+/* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+/* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+
+@keyframes modalAppear { 
+    from { opacity: 0; transform: scale(0.8);} 
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 20px 15px; 
+        margin: 15px 0;
+    }
+    .container-tarjet { 
+        gap: 10px;
+    }
+    .tarjetas { 
+        flex: 1 1 100%;
+    }
+    .modal-teoria { 
+        max-width: 95%; 
+        margin: 10px;
+    }
+    .flecha-externa {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    body { padding: 5px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 15px 10px; 
+        margin: 10px 0;
+    }
+    .modal-teoria-header,
+    .modal-teoria-contenido {
+        padding: 15px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 90%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="Titulo"><h1>Tema 1. La planeación del trabajo en equipo.</h1></div>
+<div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+<div class="citaT-Autor"><h3>"El trabajo en equipo es el resultado de la interacción entre seres humanos que coexisten en el mismo lugar y en el mismo tiempo."</h3><h3>Víctor Espinosa</h3></div>
+<div class="Parrafo"><h2></h2><p>Hoy en día, las organizaciones enfrentan cambios constantes, situación en la que deben establecer mecanismos que les permitan atender las demandas de producción y competitividad y así, mantenerse vigentes dentro del ámbito productivo. Para ello, es necesario planear el trabajo que habrá de desarrollar el equipo con el propósito de perfeccionar su desempeño y mejorar la productividad y la competitividad.</p></div>
+<div class="Referencia"><h3>COMO SE HA ESTUDIADO, PARA TENER UNA CULTURA DE TRABAJO, ES NECESARIO CONJUNTAR VARIOS ELEMENTOS SON: LA FILOSOFÍA Y VALORES DEL TRABAJO EN EQUIPO, UNA ESTRATEGIA ESPECÍFICA QUE SE APLICARÁ Y UN ENTORNO PROPICIO.</h3></div>
+<div class="Referencia"><h3>“UNA VEZ QUE LOS DIRECTIVOS HAN COMPARTIDO Y ACLARADO CON TODO EL PERSONAL LA FILOSOFÍA
+Y LOS VALORES QUE DEBEN PRACTICARSE ES NECESARIO DEFINIR:<br><br>
+• El PROPÓSITO O MISIÓN DEL PROYECTO.<br>
+• LOS OBJETIVOS Y LAS METAS QUE HAN DE CONSEGUIRSE EN LA IMPLANTACIÓN.<br>
+• LA ESTRATEGIA PARA LOGRAR LOS OBJETIVOS.<br>
+• EL PROGRAMA DE ACCIONES QUE SE DESEMPEÑARÁN A TRAVÉS DEL TIEMPO Y POR MEDIO DE LAS CUALES SE ALCANZARÁN LOS OBJETIVOS Y LA MISIÓN DE LA NUEVA CULTURA DEL TRABAJO”(GARCÍA SALAZAR, 2003).</h3></div>
+
+    <div class="Tema" style="border-top-color: #ff771c">
+        <h4 style="color: #ff771c"></h4>
+        <p>Analiza el siguiente procedimiento:</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(0, 0)"><div class="header-tarjet"><h3>1er Paso.</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 1)"><div class="header-tarjet"><h3>2do. Paso.</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 2)"><div class="header-tarjet"><h3>3er. Paso.</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 3)"><div class="header-tarjet"><h3>4to. Paso.</h3></div></div></div></div>
+
+    <div class="Tema" style="border-top-color: #0080ff">
+        <h4 style="color: #0080ff">Implantación del trabajo en equipo</h4>
+        <p>Lo que define a una organización de acuerdo a Blau P.M, (1998) “Es la existencia de procedimientos formales para movilizar y coordinar los esfuerzos de diversos subgrupos, generalmente especializados, con miras a alcanzar objetivos comunes”. En este sentido debemos aclarar dos conceptos sin los cuales no puede entenderse el mundo de las organizaciones: productividad y competitividad.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(1, 0)"><div class="header-tarjet"><h3>Productividad.</h3></div></div><div class="tarjetas" onclick="abrirTeoria(1, 1)"><div class="header-tarjet"><h3>Competitividad.</h3></div></div></div><p>Como podemos observar en las definiciones anteriores, la organización, es un espacio en la cual se desarrollan procesos, productos o servicios para que esta permanezca en el mercado, pero no debemos olvidar que también es un espacio en donde hay interacciones entre las personas y los objetivos comunes que se quieren alcanzar.<br><br>
+En este sentido, es fundamental plantearse las siguientes preguntas: ¿Por qué debemos trabajar en equipo?, ¿para qué trabajar en equipo?, sobre todo, ¿cómo fomentar el trabajo en equipo en la organización?, y ¿qué beneficios obtendremos?</p></div>
+
+    <div class="Tema" style="border-top-color: #ff771c">
+        <h4 style="color: #ff771c"></h4>
+        <p>La implantación del trabajo en equipo es permanente cuando en una organización se presentan las siguientes condiciones:<br>
+1. Las que corresponden a la <strong>parte productiva</strong> y<br>
+2. Las que se refieren a las <strong>relaciones laborales</strong> (interpersonales) en el área de trabajo; estas últimas son las que se conocen como clima laboral.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(2, 0)"><div class="header-tarjet"><h3>1. Área productiva.</h3></div></div><div class="tarjetas" onclick="abrirTeoria(2, 1)"><div class="header-tarjet"><h3>2. Área de relaciones laborales o clima laboral.</h3></div></div></div></div>
+
+<div class="modal-overlay" id="modal-teoria">
+    <button class="flecha-externa flecha-izquierda" id="flecha-izq-teoria" onclick="navegarTeoria(-1)">←</button>
+    <div class="modal-teoria">
+        <div class="modal-teoria-header">
+            <h3 id="modal-teoria-titulo">Título Teoría</h3>
+        </div>
+        <div class="modal-teoria-contenido" id="modal-teoria-contenido">
+            <!-- Contenido se insertará dinámicamente -->
+        </div>
+        <button class="cerrar-btn" onclick="cerrarTeoriaModal()">X</button>
+    </div>
+    <button class="flecha-externa flecha-derecha" id="flecha-der-teoria" onclick="navegarTeoria(1)">→</button>
+</div>
+
+<div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+<script>
+// MODIFICADO: Sistema de tarjetas por tema
+let temaActual = null;
+let tarjetaActual = 0;
+const temasData = {"0": {"tarjetas": [{"titulo": "1er Paso.", "contenido": "Plantea las siguientes preguntas:<br><br>\u2022 \u00bfCu\u00e1l es nuestro objetivo a lograr?<br><br>\u2022 \u00bfCu\u00e1les son las acciones sustantivas y cu\u00e1les las secundarias?<br><br>\u2022 \u00bfC\u00f3mo nos podemos organizar para lograrlo? <br><br>\u2022 \u00bfConqu\u00e9 nivel de calidad se pretende hacer el producto?<br><br>\u2022 \u00bfExisten pasos que se puedan simplificar?"}, {"titulo": "2do. Paso.", "contenido": "Prepara una lista de tareas que contenga los pasos que tienes que realizar para cumplirlas. Toma en cuenta la complejidad, los recursos con los que cuentas y los<br>tiempos de entrega.<br><br>\u2022 \u00bfQu\u00e9 tan bien est\u00e1 trabajando el equipo con respecto a la obtenci\u00f3n de sus objetivos?<br><br>\u2022 \u00bfQu\u00e9 aspectos est\u00e1n impulsando y cu\u00e1les obstaculizan el trabajo?<br><br>\u2022 \u00bfQu\u00e9 podr\u00eda salir mal en las acciones que se est\u00e1n implantando? \u00bfC\u00f3mo podr\u00edan prevenirse?<br><br>\u2022 \u00bfQu\u00e9 tiene que hacerse para eliminar las debilidades existentes en el equipo?<br><br>\u2022 \u00bfQu\u00e9 tiene que hacerse para aumentar las fortalezas con que se cuenta?<br><br>\u2022 \u00bfQu\u00e9 tiene que hacerse para aprovechar las oportunidades existentes en el entorno y que facilitan el logro de la misi\u00f3n del equipo?"}, {"titulo": "3er. Paso.", "contenido": "Discutan entre todos los integrantes del equipo c\u00f3mo llevar acabo la tarea, qu\u00e9 etapas s\u00e9 tendr\u00edan que considerar y en cu\u00e1nto tiempo se comprometen a entregarlo.<br><br><strong>ESTA ETAPA REPRESENTA LA EJECUCI\u00d3N, VERIFICACI\u00d3N Y EL AJUSTE DE LOS PLANES DE ACCI\u00d3N, ADEM\u00c1S APARECEN Y SE VENCEN LOS OBST\u00c1CULOS EN EL DESEMPE\u00d1O DEL EQUIPO.</strong>"}, {"titulo": "4to. Paso.", "contenido": "Finalmente, antes de entregar el producto realicen una autoevaluaci\u00f3n del trabajo realizado.<br><br><strong>EN ESTA ETAPA EL EQUIPO, SE RENUEVA A TRAV\u00c9S DE INCORPORAR NUEVOS MIEMBROS, REPLANTEAR OBJETIVOS, REDEFINIR Y MEJORAR SUS M\u00c9TODOS DE TRABAJO, ADEM\u00c1S DE PREPARARSE Y ENTRENARSE EN NUEVAS HABILIDADES.</strong>"}]}, "1": {"tarjetas": [{"titulo": "Productividad.", "contenido": "Es el resultado de c\u00f3mo se administran los procesos para la producci\u00f3n de bienes o servicios con base en la implantaci\u00f3n de innovaciones en sus productos y en sus procesos."}, {"titulo": "Competitividad.", "contenido": "Es la habilidad de una empresa para posicionarse en una parte del mercado mundial y sostenerse a lo largo del tiempo y crecer."}]}, "2": {"tarjetas": [{"titulo": "1. \u00c1rea productiva.", "contenido": "Conformada por todos los aspectos relacionados con el cumplimiento de las tareas y el logro de los objetivos de la empresa. <br><br>El trabajo en equipo se hace necesario cuando:<br><br>\u2022 Los esfuerzos individuales son insuficientes para lograr el cumplimiento de las tareas y las metas.<br><br>\u2022 Se presentan errores u omisiones muy frecuentemente y existe la tendencia a completar el trabajo de otros.<br><br>\u2022 El producto o servicio final deja mucho que desear en cuanto a la calidad del mismo: existen demasiadas quejas o, las ventas disminuyen.<br><br>\u2022 Se realizan un sinn\u00famero de revisiones parciales y totales.<br><br>\u2022 Se consideran la necesidad de crecimiento y desarrollo general, por situaciones internas o externas."}, {"titulo": "2. \u00c1rea de relaciones laborales o clima laboral.", "contenido": "Compuesta por lo que com\u00fanmente conocemos como el trato entre los compa\u00f1eros de trabajo, y entre estos y las autoridades de la empresa. <br><br>El trabajo en equipo se hace imprescindible cuando:<br><br>\u2022 Hay un alto grado de desconfianza en lo que los dem\u00e1s hacen.<br><br>\u2022 Los errores u omisiones personales se achacan a otros.<br><br>\u2022 Hay una lucha, muchas veces oculta, por el poder y la ventaja de unos sobre otros.<br><br>\u2022 Con frecuencia se busca a un culpable.<br><br>\u2022 Existen conflictos personales en el grupo que afectan la productividad del mismo."}]}};
+
+function abrirTeoria(temaIndex, tarjetaIndex) {
+    temaActual = temaIndex;
+    tarjetaActual = tarjetaIndex;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function navegarTeoria(direccion) {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const nuevaTarjeta = tarjetaActual + direccion;
+    
+    if (nuevaTarjeta >= 0 && nuevaTarjeta < totalTarjetas) {
+        tarjetaActual = nuevaTarjeta;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const data = tarjetasDelTema[tarjetaActual];
+    
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = data.contenido;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.style.display = (tarjetaActual <= 0) ? 'none' : 'block';
+    if (flechaDer) flechaDer.style.display = (tarjetaActual >= totalTarjetas-1) ? 'none' : 'block';
+}
+
+function cerrarTeoriaModal() {
+    temaActual = null;
+    tarjetaActual = 0;
+    document.getElementById('modal-teoria').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+// Touch events para móviles
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipedDistance = touchStartX - touchEndX;
+    if (Math.abs(swipedDistance) > 50) {
+        if (swipedDistance > 0) {
+            navegarTeoria(1);
+        } else {
+            navegarTeoria(-1);
+        }
+    }
+}
+
+document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') cerrarTeoriaModal();
+    if(document.getElementById('modal-teoria').classList.contains('activo')){
+        if(e.key==='ArrowLeft') navegarTeoria(-1);
+        if(e.key==='ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-3-1';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a la siguiente página
+            window.location.href = '../2/Tema2.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>
