@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Liderazgo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background:#f4f4f4;}
+    .container { max-width: 900px; margin: auto; padding: 20px;}
+    header { text-align: center; margin-bottom: 20px;}
+    .module { margin-bottom: 20px; background:#fff; padding: 10px; border-radius:5px; }
+    .module-header { cursor:pointer; display:flex; justify-content:space-between; padding:5px; background:#eee; border-radius:5px;}
+    .activities { display:block; margin-top:10px; }
+    .activity { margin-bottom:10px; }
+    .progress-container { margin:20px 0; }
+    .progress-bar { width:100%; height:20px; background:#ddd; border-radius:10px; overflow:hidden;}
+    .progress-fill { height:100%; width:0%; background:#2196F3; text-align:center; color:white; line-height:20px;}
+    #course-screen { display:none; }
+    button { cursor:pointer; }
+    
+    /* Estilos para el botón Comenzar */
+    .start-button-container { text-align: center; margin: 25px 0; }
+    .start-btn {
+        background: #27ae60; color: white; border: none; padding: 15px 35px;
+        font-size: 18px; border-radius: 30px; cursor: pointer; transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    }
+    .start-btn:hover {
+        background: #219653; transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    }
+    .start-btn i { margin-right: 10px; }
+    
+    /* Estilos para el formulario */
+    .login-form { max-width: 400px; margin: 0 auto; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .form-group input, .form-group select {
+        width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .button-group { text-align: center; margin-top: 20px; }
+    #login-btn {
+        background: #2196F3; color: white; border: none; padding: 12px 25px;
+        font-size: 16px; border-radius: 4px; cursor: pointer;
+    }
+    #login-btn:hover { background: #0b7dda; }
+    #login-btn i { margin-right: 8px; }
+    .fas.fa-home {
+            display: inline-block;
+            background-color:#0b7dda ;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 10%;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .fas.fa-home{
+            display: block;
+            width: fit-content;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+            }
+        }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo"><i class="fas fa-graduation-cap"></i> Liderazgo</div>
+        <p>Capacitación en línea</p>
+    </header>
+
+    <div class="app-content">
+        <a href="../index.html" class="fas fa-home"></a>
+        <!-- Pantalla de login -->
+        <div id="login-screen">
+            <h2>Acceso al Curso</h2>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="fullname">Nombre Completo</label>
+                    <input type="text" id="fullname" placeholder="Ej: Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="company-id">MEP</label>
+                    <input type="text" id="company-id" placeholder="Ej: ABC123">
+                </div>
+                <!-- LISTA DESPLEGABLE DE REGIÓN AGREGADA -->
+                <div class="form-group">
+                    <label for="region">REGIÓN</label>
+                    <select id="region">
+                        <option value="" disabled selected>Selecciona tu región</option>
+                        <option value="NORTE REX">NORTE REX</option>
+                        <option value="SUR">SUR</option>
+                        <option value="MARINA">MARINA</option>
+                        <option value="NORTE TIH">NORTE TIH</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button id="login-btn"><i class="fas fa-sign-in-alt"></i> Acceder al Curso</button>
+                </div>
+                <div id="loading" style="display:none;">Enviando datos...</div>
+                <div id="success-message" style="display:none;">Datos enviados correctamente</div>
+                <div id="error-message" style="display:none;">Hubo un error al enviar los datos. Se guardará localmente.</div>
+            </div>
+        </div>
+
+        <!-- Pantalla del curso -->
+        <div id="course-screen">
+            <div class="welcome-header">
+                <div class="user-info"><i class="fas fa-user-check"></i> Bienvenido, <span id="user-name"></span></div>
+                <button class="logout-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar"><div class="progress-fill" id="progress-fill">0%</div></div>
+            </div>
+            
+            <!-- Botón Comenzar -->
+            <div class="start-button-container">
+                <button class="start-btn" id="start-button">
+                    <i class="fas fa-play-circle"></i> Comenzar
+                </button>
+            </div>
+
+            <div class="course-content">
+
+                <!-- Examen Diagnóstico -->
+                <div class="module">
+                    <div class="module-header" onclick="toggleModule(0)">
+                        <div class="module-title"><i class="fas fa-file-alt"></i> Evaluación Diagnóstica</div>
+                        <div class="module-status" id="module-0-status">No iniciado</div>
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <button onclick="openActivity('activity-0-1','EXAMEN/Examen-Diagnostico.html')"><i class="fas fa-clipboard-list"></i> Realizar Evaluación Diagnóstica</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-0-1" data-module="0" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 1 -->
+                <div class="module">
+                    <div class="module-header" onclick="toggleModule(1)">
+                        <div class="module-title"><i class="fas fa-play-circle"></i> Módulo 1</div>
+                        <div class="module-status" id="module-1-status">No iniciado</div>
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <button onclick="openActivity('activity-1-0','INTRODUCCION/modulo1.html')"><i class="fas fa-book-open"></i> Introducción</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-1-0" data-module="1" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-1-1','MODULO1/1/Tema1.html')"><i class="fas fa-book"></i> Tema 1.- ¿Qué es el liderazgo?</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-1-1" data-module="1" disabled>
+                        </div>
+                        <!-- ACTIVIDAD SOPA DE LETRAS -->
+                        <div class="activity">
+                            <button onclick="openActivity('sopa-de-letras','MODULO1/1/sopa.html')"><i class="fas fa-puzzle-piece"></i> Actividad 1</button>
+                            <input type="checkbox" class="activity-checkbox" id="sopa-de-letras" data-module="1" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-1-2','MODULO1/2/Tema2.html')"><i class="fas fa-book"></i> Tema 2.- ¿Quién es un líder?</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-1-2" data-module="1" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-1-3','MODULO1/3/Tema3.html')"><i class="fas fa-book"></i> Tema 3.- El líder con enfoque humanista</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-1-3" data-module="1" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('conclusion','MODULO1/conclusion.html')"><i class="fas fa-book"></i> Conclusión</button>
+                            <input type="checkbox" class="activity-checkbox" id="conclusion" data-module="1" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <div class="module">
+                    <div class="module-header" onclick="toggleModule(2)">
+                        <div class="module-title"><i class="fas fa-chalkboard-teacher"></i> Módulo 2</div>
+                        <div class="module-status" id="module-2-status">No iniciado</div>
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <button onclick="openActivity('activity-2-0','INTRODUCCION/modulo2.html')"><i class="fas fa-book-open"></i> Introducción</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-2-0" data-module="2" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-2-1','MODULO2/1/tema1.html')"><i class="fas fa-users"></i> Tema 1.-  Persona</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-2-1" data-module="2" disabled>
+                        </div>
+                        <!-- ACTIVIDAD -->
+                        <div class="activity">
+                            <button onclick="openActivity('crucigrama','MODULO2/1/crucigrama1.html')"><i class="fas fa-puzzle-piece"></i> Actividad 2</button>
+                            <input type="checkbox" class="activity-checkbox" id="crucigrama" data-module="2" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-2-2','MODULO2/2/tema2.html')"><i class="fas fa-lightbulb"></i> Tema 2.-¿Quién soy?</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-2-2" data-module="2" disabled>
+                        </div>
+                        <!-- ACTIVIDAD FORO -->
+                        <div class="activity">
+                            <button onclick="openActivity('foro','MODULO2/2/foro.html')"><i class="fas fa-puzzle-piece"></i> Actividad 3</button>
+                            <input type="checkbox" class="activity-checkbox" id="foro" data-module="2" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-2-3','MODULO2/3/tema3.html')"><i class="fas fa-comments"></i> Tema 3.- Descubrimiento personal en el trabajo</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-2-3" data-module="2" disabled>
+                        </div>
+                        <!-- ACTIVIDAD FORO -->
+                        <div class="activity">
+                            <button onclick="openActivity('foro-2','MODULO2/3/foro.html')"><i class="fas fa-puzzle-piece"></i> Actividad 4</button>
+                            <input type="checkbox" class="activity-checkbox" id="foro-2" data-module="2" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('conclusion2','MODULO2/conclusion.html')"><i class="fas fa-book"></i> Conclusión</button>
+                            <input type="checkbox" class="activity-checkbox" id="conclusion2" data-module="2" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <div class="module">
+                    <div class="module-header" onclick="toggleModule(3)">
+                        <div class="module-title"><i class="fas fa-briefcase"></i> Módulo 3: Liderazgo en la Organización</div>
+                        <div class="module-status" id="module-3-status">No iniciado</div>
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <button onclick="openActivity('activity-3-0','INTRODUCCION/modulo3.html')"><i class="fas fa-book-open"></i> Introducción</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-3-0" data-module="3" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-3-1','MODULO3/1/tema1.html')"><i class="fas fa-project-diagram"></i> Tema 1.- ¿Qué función realiza el líder humanista en la organización?</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-3-1" data-module="3" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-3-2','MODULO3/2/tema2.html')"><i class="fas fa-users-cog"></i> Tema 2.- El liderazgo humanista y las relaciones humanas.</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-3-2" data-module="3" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-3-3','MODULO3/3/tema3.html')"><i class="fas fa-award"></i> Tema 3.- El liderazgo humanista y el trabajo en equipo.</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-3-3" data-module="3" disabled>
+                        </div>
+                        <!-- ACTIVIDAD FORO -->
+                        <div class="activity">
+                            <button onclick="openActivity('foro-3','MODULO3/3/foro.html')"><i class="fas fa-puzzle-piece"></i> Actividad 5</button>
+                            <input type="checkbox" class="activity-checkbox" id="foro-3" data-module="3" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('activity-3-4','MODULO3/4/tema4.html')"><i class="fas fa-users-cog"></i> Tema 4.- Importancia del liderazgo humanista en la Nueva Cultura Laboral.</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-3-4" data-module="3" disabled>
+                        </div>
+                        <div class="activity">
+                            <button onclick="openActivity('conclusion3','MODULO3/conclusion.html')"><i class="fas fa-book"></i> Conclusión</button>
+                            <input type="checkbox" class="activity-checkbox" id="conclusion3" data-module="3" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Examen Final -->
+                <div class="module">
+                    <div class="module-header" onclick="toggleModule(4)">
+                        <div class="module-title"><i class="fas fa-file-signature"></i> Examen Final</div>
+                        <div class="module-status" id="module-4-status">No iniciado</div>
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <button onclick="openActivity('activity-4-1','EXAMEN/Examen-Final.html')"><i class="fas fa-clipboard-check"></i> Realizar Examen Final</button>
+                            <input type="checkbox" class="activity-checkbox" id="activity-4-1" data-module="4" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>IE &copy; 2025 -Todos los derechos reservados</p>
+    </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginScreen = document.getElementById('login-screen');
+    const courseScreen = document.getElementById('course-screen');
+    const loginBtn = document.getElementById('login-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const fullnameInput = document.getElementById('fullname');
+    const companyIdInput = document.getElementById('company-id');
+    const regionSelect = document.getElementById('region');
+    const userNameSpan = document.getElementById('user-name');
+    const checkboxes = document.querySelectorAll('.activity-checkbox');
+    const loadingIndicator = document.getElementById('loading');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const startButton = document.getElementById('start-button');
+
+    // Reemplaza con tu URL de Google Apps Script
+    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxq7PCh8_NcRGcAIIQhkDGN8WQIhiG06mHMxA73-iq0Q0etxNFpjER6QLHyDTjiwvi2/exec';
+
+    // Convertir a MAYÚSCULAS en tiempo real
+    fullnameInput.addEventListener("input", () => { fullnameInput.value = fullnameInput.value.toUpperCase(); });
+    companyIdInput.addEventListener("input", () => { companyIdInput.value = companyIdInput.value.toUpperCase(); });
+
+    // Revisar sesión activa
+    checkExistingSession();
+
+    loginBtn.addEventListener('click', handleLogin);
+    logoutBtn.addEventListener('click', handleLogout);
+    startButton.addEventListener('click', handleStartButton);
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            updateLabelStyle(cb);
+            updateProgress();
+            saveProgress();
+            unlockNextActivity(cb);
+            checkProgressAndReset();
+        });
+    });
+
+    // FUNCIÓN PARA CERRAR SESIÓN AL 100%
+    function checkProgressAndReset() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) return;
+        
+        const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+        const savedProgress = localStorage.getItem(progressKey);
+        
+        if (savedProgress) {
+            const progressData = JSON.parse(savedProgress);
+            const totalActivities = document.querySelectorAll('.activity-checkbox').length;
+            const completedActivities = Object.values(progressData).filter(status => status === true).length;
+            const progressPercent = (completedActivities / totalActivities) * 100;
+            
+            // Si se alcanza el 100% de progreso
+            if (progressPercent === 100) {
+                // Mostrar mensaje de finalización
+                setTimeout(() => {
+                    alert('¡No Aprobado!.La sesión se cerrará automáticamente.');
+                    
+                    // Esperar 2 segundos antes de cerrar
+                    setTimeout(() => {
+                        // Borrar todo el progreso
+                        localStorage.removeItem(progressKey);
+                        localStorage.removeItem('currentUser');
+                        
+                        // Recargar la página para regresar al login
+                        window.location.reload();
+                    }, 2000);
+                }, 1000);
+            }
+        }
+    }
+
+    function handleLogin() {
+        const fullname = fullnameInput.value.trim().toUpperCase();
+        const companyId = companyIdInput.value.trim().toUpperCase();
+        const region = regionSelect.value;
+        
+        if (!fullname || !companyId || !region) { 
+            alert('Completa todos los campos'); 
+            return; 
+        }
+
+        const user = { fullname, companyId, region };
+        localStorage.setItem('currentUser', JSON.stringify(user));
+
+        loadingIndicator.style.display = 'block';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+
+        sendToGoogleSheets(fullname, companyId, region)
+        .then((result) => {
+            loadingIndicator.style.display = 'none';
+            
+            if (result.result === "success") {
+                successMessage.style.display = 'block';
+                successMessage.textContent = result.message || 'Datos enviados correctamente';
+            } else {
+                throw new Error(result.message || 'Error del servidor');
+            }
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                resetCheckboxes();
+                showCourseScreen(user);
+                lockAllActivities();
+                loadProgress();
+                unlockCompletedActivities(); 
+                unlockNextAvailableActivity();
+                checkProgressAndReset();
+            }, 1500);
+        })
+        .catch((error) => {
+            loadingIndicator.style.display = 'none';
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = 'Error: ' + error.message + '. Los datos se guardarán localmente.';
+            
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+                resetCheckboxes();
+                showCourseScreen(user);
+                lockAllActivities();
+                loadProgress();
+                unlockCompletedActivities(); 
+                unlockNextAvailableActivity();
+                checkProgressAndReset();
+            }, 3000);
+        });
+    }
+
+    function handleStartButton() {
+        window.open('EXAMEN/Examen-Diagnostico.html', '_blank');
+    }
+
+    async function sendToGoogleSheets(name, mep, region){
+        const data = { 
+            nombre: name, 
+            mep: mep, 
+            region: region,
+            fecha: new Date().toLocaleString(), 
+            origen: 'CursoLiderazgo' 
+        };
+        
+        const params = new URLSearchParams(data);
+        
+        try {
+            // QUITAMOS mode: 'no-cors' para poder recibir la respuesta
+            const response = await fetch(googleScriptURL, { 
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }, 
+                body: params
+            });
+            
+            // Verificamos si la respuesta fue exitosa
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            
+            const result = await response.json();
+            return result;
+            
+        } catch (error) {
+            console.error('Error al enviar datos:', error);
+            throw error;
+        }
+    }
+
+    function handleLogout() {
+        localStorage.removeItem('currentUser');
+        courseScreen.style.display = 'none';
+        loginScreen.style.display = 'block';
+        fullnameInput.value='';
+        companyIdInput.value='';
+        regionSelect.value='';
+    }
+
+    function checkExistingSession() {
+        const currentUser = localStorage.getItem('currentUser');
+        if(currentUser){
+            const user = JSON.parse(currentUser);
+            showCourseScreen(user);
+            loadProgress();
+            lockAllActivities();
+            unlockCompletedActivities(); 
+            unlockNextAvailableActivity();
+            checkProgressAndReset();
+        }
+    }
+
+    function showCourseScreen(user){
+        loginScreen.style.display='none';
+        courseScreen.style.display='block';
+        userNameSpan.textContent=user.fullname;
+    }
+
+    function resetCheckboxes(){
+        checkboxes.forEach(cb => { cb.checked=false; updateLabelStyle(cb); });
+        updateProgress();
+    }
+
+    function updateLabelStyle(checkbox){
+        const label=document.querySelector(`label[for="${checkbox.id}"]`);
+        if(label) label.classList.toggle('completed', checkbox.checked);
+    }
+
+    function updateProgress(){
+        const allCbs = document.querySelectorAll(".activity-checkbox");
+        const allChecked = document.querySelectorAll(".activity-checkbox:checked");
+        const progressPercent = (allChecked.length / allCbs.length) * 100;
+        const progressFill = document.getElementById("progress-fill");
+        if(progressFill) progressFill.style.width = progressPercent + "%";
+        progressFill.textContent = Math.round(progressPercent)+"%";
+    }
+
+    function saveProgress(){
+        const currentUser=JSON.parse(localStorage.getItem('currentUser'));
+        if(!currentUser) return;
+        const progressData={};
+        checkboxes.forEach(cb => progressData[cb.id]=cb.checked);
+        localStorage.setItem(`progress_${currentUser.companyId}_${currentUser.fullname}`,JSON.stringify(progressData));
+    }
+
+    function loadProgress(){
+        const currentUser=JSON.parse(localStorage.getItem('currentUser'));
+        if(!currentUser) return;
+        const saved=localStorage.getItem(`progress_${currentUser.companyId}_${currentUser.fullname}`);
+        if(saved){
+            const data=JSON.parse(saved);
+            Object.keys(data).forEach(id=>{
+                const cb=document.getElementById(id);
+                if(cb){ cb.checked=data[id]; updateLabelStyle(cb); }
+            });
+        }
+        updateProgress();
+    }
+
+    function lockAllActivities(){
+        document.querySelectorAll('.module .activity button').forEach(btn=>{ btn.disabled = true; });
+    }
+
+    function unlockNextActivity(checkbox){
+        const activities = Array.from(document.querySelectorAll('.activity-checkbox'));
+        const index = activities.indexOf(checkbox);
+        if(index > -1 && checkbox.checked){
+            const next = activities[index+1];
+            if(next){
+                const btn = next.closest('.activity').querySelector('button');
+                if(btn) btn.disabled = false;
+            }
+        }
+    }
+
+    function unlockNextAvailableActivity(){
+        const activities = Array.from(document.querySelectorAll('.activity-checkbox'));
+        for(const cb of activities){
+            const btn = cb.closest('.activity').querySelector('button');
+            if(!cb.checked){
+                if(btn) btn.disabled = false;
+                break;
+            }
+        }
+    }
+
+    // Desbloquear botones de actividades ya completadas
+    function unlockCompletedActivities(){
+        const activities = Array.from(document.querySelectorAll('.activity-checkbox'));
+        activities.forEach(cb => {
+            if(cb.checked){
+                const btn = cb.closest('.activity').querySelector('button');
+                if(btn) btn.disabled = false;
+            }
+        });
+    }
+
+    window.openActivity=function(activityId,url){
+        const cb=document.getElementById(activityId);
+
+        const excepciones=["activity-0-1","sopa-de-letras","crucigrama","foro","foro-2","foro-3","activity-4-1" ]
+        if(cb && !cb.checked && !excepciones.includes(activityId)){ 
+        cb.checked = true; 
+        updateLabelStyle(cb); 
+        updateProgress(); 
+        saveProgress(); 
+        unlockNextActivity(cb);
+        checkProgressAndReset();
+    }
+        window.open(url,'_blank');
+    }
+    
+    // Función para expandir/contraer módulos
+    window.toggleModule = function(moduleIndex) {
+        const activities = document.querySelectorAll('.module')[moduleIndex].querySelector('.activities');
+        if (activities.style.display === 'none' || activities.style.display === '') {
+            activities.style.display = 'block';
+        } else {
+            activities.style.display = 'none';
+        }// Función para expandir/contraer módulos
+    };
+});
+</script>
+<script src="Temporizador.js"></script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO I</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+        
+        /* Estilos para el iframe */
+        .esquema iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-indicator.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor0">
+        <h1>TEMA 2. ¿Quién es un líder?</h1>
+    </div>
+
+    <div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+
+    <div class="conte0">
+         <h2>Concepto</h2><br>
+        <p>Para entender quién es un líder, debemos partir de lo que significa ser líder.</p>
+
+        <p2>Según D´Souza (1997) el líder es aquella persona que orienta a los demás hacia un 
+            objetivo, les comparte su pasión y retos en pro del bien común. Es capaz de inyectar 
+            energía y motivar a otros, para que las cosas sucedan (Cenpros, 2003).</p2>
+    </div>
+
+    <div class="contenedor">
+        <h3>Por muchos años, el líder se concibió como la persona encargada de ejercer el control 
+            en las empresas: poseedor de excepcionales capacidades de mando y supervisión. Se le 
+            concibió como el único capaz de tomar las decisiones más importantes, de guiar el rumbo 
+            de las organizaciones, de determinar las medidas que habrían de implementarse; lo mismo 
+            en relación con los recursos materiales que con el personal a su cargo. En esta vieja 
+            visión, el líder nacía con cualidades especiales para definir el éxito o fracaso de la 
+            organización.</h3> 
+    </div>
+
+    <div class="conte0">
+        <p>El líder es quien identifica las capacidades, habilidades, cualidades y actitudes de sus 
+            colaboradores, con quienes comparte su visión, guiando las actividades en pro de la 
+            organización y del bien común.</p><br>
+
+        <p>Si bien los líderes tienen estilos, tácticas y estrategias diferentes en el manejo de 
+            situaciones y de las relaciones interpersonales, lo que los identifica es su capacidad de 
+            dirigir prácticas concatenadas con resultados positivos, a partir del compromiso personal 
+            para asumir su propio desarrollo como ser humano, su entusiasmo por aprender y por compartir 
+            con los demás ese crecimiento e impulsar el de todo su equipo.<br>
+            Para ser reconocido como líder se necesita:</p>
+        
+        <p>• Ser una persona consciente de sus propias cualidades y limitaciones.<br>
+        <br>• Estar abierto a cualquier sugerencia y trabajar fuertemente en la voluntad, para revisar y 
+            erradicar malos hábitos y tendencias negativas, así como orientar el desarrollo de cualidades 
+            mediante la experiencia y la educación.<br>
+        <br>• Reflejar valores y sentimientos, para compartirlos en la convivencia con los demás.<br>
+        <br>• Descubrir que el liderazgo no es un puesto o posición, sino un proceso permanente de 
+            aprendizaje personal y compartido. El líder al momento de dirigir a otras personas, enfrenta 
+            múltiples problemas; sin embargo, encuentra la solución asumiendo una actitud y mentalidad positiva.<br>
+        <br>• Aprender de los demás y demostrar responsabilidad en sus acciones.</p>
+    </div>
+
+     <div class="refe">
+        <h3>Ideas Relevantes</h3><br>
+        <p>• Ideas.<br>
+        <br>• Valores.<br>
+        <br>• Energía emocional, y Temple.<br>
+        <br>Los líderes exitosos se responsabilizan del desarrollo de otros líderes.</p> 
+        <h4>(Tichy, 2003)</h4> 
+    </div>
+
+    <div class="objetivos">
+        <h4>¿Qué funciones realiza un líder?</h4>
+         <p>D´Souza (1997) establece diez funciones que realiza un líder:</p>
+         <P>HAZ CLIC EN LOS BOTONES AZULES</P>
+         <!-- Tarjetas interactivas -->
+        <div class="tarjetas-container">
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta" onclick="abrirTarjeta(1)">
+                <div class="tarjeta-header">
+                    <h3>Primera</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta" onclick="abrirTarjeta(2)">
+                <div class="tarjeta-header">
+                    <h3>Segunda</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="tarjeta" onclick="abrirTarjeta(3)">
+                <div class="tarjeta-header">
+                    <h3>Tercera</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4 -->
+            <div class="tarjeta" onclick="abrirTarjeta(4)">
+                <div class="tarjeta-header">
+                    <h3>Cuarta</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 5 -->
+            <div class="tarjeta" onclick="abrirTarjeta(5)">
+                <div class="tarjeta-header">
+                    <h3>Quinta</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 6 -->
+            <div class="tarjeta" onclick="abrirTarjeta(6)">
+                <div class="tarjeta-header">
+                    <h3>Sexta</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 7 -->
+            <div class="tarjeta" onclick="abrirTarjeta(7)">
+                <div class="tarjeta-header">
+                    <h3>Séptima</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 8 -->
+            <div class="tarjeta" onclick="abrirTarjeta(8)">
+                <div class="tarjeta-header">
+                    <h3>Octava</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 9 -->
+            <div class="tarjeta" onclick="abrirTarjeta(9)">
+                <div class="tarjeta-header">
+                    <h3>Novena</h3>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 10 -->
+            <div class="tarjeta" onclick="abrirTarjeta(10)">
+                <div class="tarjeta-header">
+                    <h3>Décima</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="refe">
+        <h3>Ideas Relevantes</h3><br>
+        <p>Debemos reconocer cuándo la acción del líder, puede obstaculizar o fomentar el desempeño de sus compañeros o colaboradores, 
+            y cómo con sus cualidades personales, puede enriquecer o no, a otros.</p>
+    </div>
+
+    <div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+    <!-- Modal para estilos de liderazgo -->
+    <div class="modal-overlay" id="modal-tarjeta">
+         <button class="flecha-externa flecha-izquierda" id="flecha-izq-tarjeta" onclick="navegarTarjeta(-1)">←</button>
+        <div class="modal-tarjeta">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Título</h3>
+                <div class="modal-numero" id="modal-numero">0</div>
+            </div>
+            <div class="modal-contenido" id="modal-contenido">
+                <!-- Contenido se insertará dinámicamente -->
+            </div>
+            <button class="cerrar-btn" onclick="cerrarModal()">×</button>
+        </div>
+         <button class="flecha-externa flecha-derecha" id="flecha-der-tarjeta" onclick="navegarTarjeta(1)">→</button>
+    </div>
+    <script>
+// Variables globales para tarjetas
+let tarjetaActual = 1;
+const totalTarjetas = 10;
+const tarjetasData = {
+     1: {
+                titulo: "Primera",
+                contenido: "Define claramente la visión y objetivo general del grupo al que dirige."
+            },
+            2: {
+                titulo: "Segunda",
+                contenido: "Asigna objetivos particulares para cada integrante, de acuerdo a la visión general."
+            },
+            3: {
+                titulo: "Tercera",
+                contenido: "Mantiene vigentes la visión y objetivos colectivos."
+            },
+            4: {
+                titulo: "Cuarta",
+                contenido: "Dirige las tareas y explica su importancia, para el logro de resultados."
+            },
+            5: {
+                titulo: "Quinta",
+                contenido: "Genera un clima de confianza y motivación en el trabajo."
+            },
+            6: {
+                titulo: "Sexta",
+                contenido: "Afronta los problemas y propone transformaciones benéficas, aprovechando las capacidades de los demás."
+            },
+            7: {
+                titulo: "Séptima",
+                contenido: "Al tomar las decisiones pertinentes y responsabilizarse de ellas, crea compromisos entre las personas y la organización."
+            },
+            8: {
+                titulo: "Octava",
+                contenido: "Maneja asertivamente las relaciones interpersonales."
+            },
+            9: {
+                titulo: "Novena",
+                contenido: "Se interesa por fomentar el crecimiento de las personas, promoviendo su desarrollo y el despliegue de sus capacidades."
+            },
+            10: {
+                titulo: "Décima",
+                contenido: "Maneja la retroalimentación del grupo, se nutre de la diversidad y riqueza de la gente."
+            }
+};
+// ===== FUNCIONES PARA TARJETAS =====
+function abrirTarjeta(numero) {
+    tarjetaActual = numero;
+    actualizarContenidoTarjeta();
+    actualizarFlechasTarjetas();
+    document.getElementById('modal-tarjeta').classList.add('activo');
+}
+
+function navegarTarjeta(direccion) {
+    const nuevaTarjeta = tarjetaActual + direccion;
+    
+    if (nuevaTarjeta >= 1 && nuevaTarjeta <= totalTarjetas) {
+        tarjetaActual = nuevaTarjeta;
+        actualizarContenidoTarjeta();
+        actualizarFlechasTarjetas();
+    }
+}
+
+function actualizarContenidoTarjeta() {
+    const data = tarjetasData[tarjetaActual];
+    if (data) {
+        document.getElementById('modal-titulo').textContent = data.titulo;
+        document.getElementById('modal-numero').textContent = tarjetaActual;
+        document.getElementById('modal-contenido').innerHTML = `<p>${data.contenido}</p>`;
+    }
+}
+
+function actualizarFlechasTarjetas() {
+    const flechaIzq = document.getElementById('flecha-izq-tarjeta');
+    const flechaDer = document.getElementById('flecha-der-tarjeta');
+    
+    if (flechaIzq) flechaIzq.disabled = (tarjetaActual <= 1);
+    if (flechaDer) flechaDer.disabled = (tarjetaActual >= totalTarjetas);
+}
+
+// ===== FUNCIONES PARA TEORÍAS =====  
+function abrirTeoria(numero) {
+    teoriaActual = numero;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+}
+
+function navegarTeoria(direccion) {
+    const nuevaTeoria = teoriaActual + direccion;
+    
+    if (nuevaTeoria >= 1 && nuevaTeoria <= totalTeorias) {
+        teoriaActual = nuevaTeoria;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    const data = teoriasData[teoriaActual];
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = `<p>${data.contenido}</p>`;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.disabled = (teoriaActual <= 1);
+    if (flechaDer) flechaDer.disabled = (teoriaActual >= totalTeorias);
+}
+
+// ===== FUNCIONES DE CIERRE =====
+function cerrarModal() {
+    document.getElementById('modal-tarjeta').classList.remove('activo');
+}
+
+function cerrarTeoriaModal() {
+    document.getElementById('modal-teoria').classList.remove('activo');
+}
+
+// ===== EVENT LISTENERS =====
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-overlay')) {
+        cerrarModal();
+        cerrarTeoriaModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    // Cerrar con Escape
+    if (e.key === 'Escape') {
+        cerrarModal();
+        cerrarTeoriaModal();
+    }
+    
+    // Navegación con teclado para tarjetas
+    if (document.getElementById('modal-tarjeta').classList.contains('activo')) {
+        if (e.key === 'ArrowLeft') navegarTarjeta(-1);
+        if (e.key === 'ArrowRight') navegarTarjeta(1);
+    }
+    
+    // Navegación con teclado para teorías
+    if (document.getElementById('modal-teoria').classList.contains('activo')) {
+        if (e.key === 'ArrowLeft') navegarTeoria(-1);
+        if (e.key === 'ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-1-2';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar al Tema 3
+            window.location.href = '../3/Tema3.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

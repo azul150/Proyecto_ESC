@@ -1,0 +1,570 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.1rem; /* Tamaño base unificado */
+}
+
+/* Encabezado principal - EXCLUIDO del tamaño base */
+.contenedor0 {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor0 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenedor0 h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Cita destacada */
+.contenedor {
+    text-align: justify;
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.contenedor h1 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.contenedor h3:first-child {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.contenedor h3:last-child {
+    text-align: right;
+    font-size: 1.2rem;
+    color: #000000;
+    font-style: normal;
+    margin-top: 10px;
+}
+
+/* Cita destacada */
+.refe {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.refe h3 {
+    text-align: justify;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* ************************************************************************************************ */
+/* Cita destacada de TEORIAS */
+.teorias {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #34db5e;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.teorias h3 {
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.teorias p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* TEORIAS1 */
+.teorias1 {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #30aef7;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.teorias1 h3 {
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.teorias1 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* TEORIAS 2 */
+.teorias2 {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #eb0f0f;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.teorias2 h3 {
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.teorias2 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* TEORIAS 3 */
+.teorias3 {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #d9ff2f;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.teorias3 h3 {
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.teorias3 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* TEORIAS 4 */
+.teorias4 {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #fa12d3;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.teorias4 h3 {
+    text-align: justify;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.teorias4 p{
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* ************************************************************************************************ */
+/* Contenido de texto */
+.conte0 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+}
+
+.conte0 p, .conte0 p1 {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p2{
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p1 {
+    display: block;
+}
+
+/* Sección de Tipos de liderazgo */
+.objetivos {
+    text-align: justify;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ff771ce0;
+    font-size: 1.1rem;
+}
+
+.objetivos h4 {
+    font-size: 1.3rem;
+    color: #ff771ce0;
+    margin-bottom: 10px;
+}
+
+.objetivos p {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.objetivos p2{
+    font-weight: normal;
+}
+
+.img-centro {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Liderazgo Tipos */
+.TiposL {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #e98181e0;
+    font-size: 1.1rem;
+}
+
+.TiposL h4 {
+    font-size: 1.3rem;
+    color: #e98181e0;
+    margin-bottom: 10px;
+}
+
+.TiposL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Liderazgo Estilos */
+.EstilosL {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ad00f1e0;
+    font-size: 1.1rem;
+}
+
+.EstilosL h4 {
+    font-size: 1.3rem;
+    color: #ad00f1e0;
+    margin-bottom: 10px;
+}
+
+.EstilosL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/**************************************************************************************++*/
+
+/* Texto final */
+body > p {
+    text-align: center;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-arrow button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: white;
+  color: #3498db;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pagination-arrow button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-arrow span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Contenedor general de tarjetas */
+.tarjeta-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta individual */
+.tarjeta2 {
+    background-color: #2980b9;
+    border-radius: 13px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 1000px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Efecto hover */
+.tarjeta2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Títulos dentro de la tarjeta */
+.tarjeta2 h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+/* Texto de la tarjeta */
+.tarjeta2 p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #f8f8f8;
+}
+
+/* Contenido oculto expandable */
+.detalle {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Botón expandir */
+.expand-btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/**************************************************************************************++*/
+/* SISTEMA RESPONSIVE ACTUALIZADO */
+/**************************************************************************************++*/
+
+/* Tablet (768px) */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.7rem;
+    }
+    
+    .pagination-arrow {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .tarjeta2 {
+        width: 90%;
+    }
+}
+
+/* Small Desktops and Laptops (992px) */
+@media screen and (min-width: 992px) {
+    body {
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 {
+        padding: 40px 30px;
+    }
+    
+    .tarjeta2 {
+        width: 1000px;
+    }
+}
+
+/* Large Desktops (1200px) */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small Phones (600px) */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .contenedor0 {
+        padding: 20px 15px;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .contenedor, .conte0, .objetivos, .TiposL, .EstilosL, .refe,
+    .teorias, .teorias1, .teorias2, .teorias3, .teorias4 {
+        padding: 20px;
+        margin: 15px 0;
+        font-size: 1rem;
+    }
+    
+    .contenedor h1,
+    .contenedor h3:first-child,
+    .contenedor h3:last-child,
+    .refe h3,
+    .teorias h3, .teorias1 h3, .teorias2 h3,
+    .teorias3 h3, .teorias4 h3,
+    .objetivos h4, .TiposL h4, .EstilosL h4 {
+        font-size: 1.2rem;
+    }
+    
+    .conte0 p, .conte0 p1, .conte0 p2,
+    .objetivos p, .objetivos p2, .TiposL p, .EstilosL p,
+    .teorias p, .teorias1 p, .teorias2 p, 
+    .teorias3 p, .teorias4 p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .tarjeta2 {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .tarjeta2 h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tarjeta2 p {
+        font-size: 1rem;
+    }
+    
+    .pagination-arrow {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pagination-arrow button {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .pagination-arrow span {
+        font-size: 1rem;
+    }
+    
+    .expand-btn {
+        font-size: 1rem;
+    }
+}

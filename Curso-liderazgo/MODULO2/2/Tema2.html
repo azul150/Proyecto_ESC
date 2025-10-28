@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO II</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+        
+        /* Estilos para el iframe */
+        .esquema iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-indicator.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor0">
+        <h1>TEMA 2. ¿Quién soy?</h1>
+    </div>
+
+    <div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+
+    <div class="conte0">
+        <p>
+            Quizá te has hecho esta pregunta en más de una ocasión y no has tenido 
+            los elementos suficientes para responderla.<br><br>
+            Si el liderazgo significa guiar u orientar a otros, debes conocer a 
+            quiénes guías, incluyéndonos a nosotros mismos.<br><br>
+            Por esta razón, te proponemos tres aspectos fundamentales que se relacionan
+            e influyen entre sí y que te permitirán comprender de mejor manera quién eres.</p>
+    </div>
+
+    <div class="objetivos">
+        <h4>La historia de mi vida</h4>
+         <p>Para reflexionar y descubrir quién soy, lo primero que debo revisar es mi propia historia,
+            mi propio pasado. Quiénes son mis padres y familiares, así como mis características personales 
+            (color de piel, cabello, estatura y complexión), y no sólo tenerlo presente en la memoria, sino 
+            aceptar cada uno de estos aspectos.
+         </p>
+    </div>
+
+    <div class="contenedor">
+        <h3>Tenemos características y cualidades que conforman nuestro ser y que son parte de nuestra personalidad. 
+            Gracias a ellas podemos decir: “soy, y esto es con lo que cuento para salir adelante”.</h3> 
+    </div>
+
+     <div class="refe">
+        <h3>Aceptar nuestro pasado con lo positivo y lo negativo nos lleva a reconocer lo que somos.</h3>
+    </div>
+
+    <div class="TiposL">
+        <h4>Naturalmente me relaciono</h4>
+         <p>El ser humano es social por naturaleza, se encuentra inmerso en un universo de relaciones: con el mundo, 
+            con las cosas, con la naturaleza y con las personas.<br><br>
+         </p>
+         <!-- Tarjeta El reconocerme y aceptarme como soy: -->
+                <div class="tarjeta1">
+                    <h3>El reconocerme y aceptarme como soy:</h3>
+                    <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('detalle'); this.textContent=this.textContent=='Mostrar más'?'Mostrar menos':'Mostrar más'">Mostrar más</button>
+                    <div class="detalle">
+                        <p>• Me permite reconocer y aceptar a los demás como son, haciendo que mis relaciones con las personas sean más espontáneas y sinceras.<br><br>
+                           • Me ayuda a querer ser más congruente conmigo y con quienes me rodean, porque me expreso como pienso, y actúo, manifestando 
+                            mis cualidades, habilidades y actitudes sin desconocer mis debilidades y áreas de oportunidad.<br><br>
+                            • Me permite comprender mejor a los demás en el trabajo.</p>
+                    </div>
+                </div>
+    </div>
+
+    <div class="refe">
+        <h3>¿Cómo me relaciono con mis compañeros, jefes y/o colaboradores en la organización?</h3>
+    </div>
+
+    <div class="EstilosL">
+        <h4>Mi necesidad de trascender</h4>
+         <p>Existe en cada persona una necesidad de trascender, es decir, dejar huella ya sea mediante el deporte, las artes, 
+            el oficio o la profesión que desempeñamos. Tu forma de ser también trasciende al demostrar alegría, generosidad, 
+            disposición y servicio. Por ejemplo: un saludo sincero y atento trasciende dejando una buena impresión, en contraste 
+            con un saludo simulado, indiferente y descortés.
+         </p>
+    </div>
+
+    <div class="refe">
+        <h3>Es importante que reconozcas la manera en que te gustaría trascender. El ser humano camina, avanza y se desarrolla impulsado por esta 
+            necesidad interior que le es propia.</h3>
+    </div>
+    <div class="refe">
+        <h3>Revisar continuamente estos tres aspectos de tu vida personal, te permitirá conocer, aceptar, comprender y convivir de manera más 
+            armónica con los demás.</h3>
+    </div>
+
+    <div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-2-2';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar al Tema 3
+            window.location.href = 'foro.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

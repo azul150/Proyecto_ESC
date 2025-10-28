@@ -1,0 +1,250 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.1rem; /* Tamaño base unificado */
+}
+
+/* Encabezado principal - EXCLUIDO del tamaño base */
+.contenedor0 {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor0 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenedor0 h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Cita destacada */
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.contenedor h3:first-child {
+    text-align: justify;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #0a0a0a;
+}
+
+/* ************************************************************************************************ */
+/* Contenido de texto */
+.conte0 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+}
+
+.conte0 p, .conte0 p1 {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p2{
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p1 {
+    display: block;
+}
+
+/* Texto final */
+body > p {
+    text-align: center;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-arrow button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: white;
+  color: #3498db;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pagination-arrow button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-arrow span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/**************************************************************************************++*/
+/* SISTEMA RESPONSIVE ACTUALIZADO */
+/**************************************************************************************++*/
+
+/* Tablet (768px) */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.7rem;
+    }
+    
+    .pagination-arrow {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Small Desktops and Laptops (992px) */
+@media screen and (min-width: 992px) {
+    body {
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 {
+        padding: 40px 30px;
+    }
+}
+
+/* Large Desktops (1200px) */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small Phones (600px) */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .contenedor0 {
+        padding: 20px 15px;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .contenedor, .conte0 {
+        padding: 20px;
+        margin: 15px 0;
+        font-size: 1rem;
+    }
+    
+    .contenedor h3:first-child {
+        font-size: 1.2rem;
+    }
+    
+    .conte0 p, .conte0 p1, .conte0 p2 {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .pagination-arrow {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pagination-arrow button {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .pagination-arrow span {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive adicional para tablets */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .contenedor, .conte0 {
+        padding: 20px;
+    }
+    
+    .contenedor h3:first-child {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODULO III</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    background-color: #f5f5f5; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.Titulo { 
+    text-align: center; 
+    padding: 30px 20px; 
+    margin-bottom: 20px; 
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%); 
+    color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.Titulo h1 { 
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    margin-bottom: 15px; 
+    font-weight: 600;
+}
+.Titulo h2 { 
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+    font-weight: 400; 
+    opacity: 0.9;
+}
+.citaT-Autor { 
+    background-color: #fff; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #555;
+}
+.citaT-Autor h3:first-child { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    margin-bottom: 15px; 
+    line-height: 1.5; 
+    color: #2c3e50;
+}
+.citaT-Autor h3:last-child { 
+    text-align: right; 
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
+    color: #000; 
+    font-style: normal; 
+    margin-top: 10px;
+}
+.Parrafo { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.Parrafo h2 { 
+    font-size: clamp(1.3rem, 3vw, 1.6rem); 
+    margin-bottom: 15px; 
+    color: #2c3e50;
+}
+.Parrafo p { 
+    text-align: justify; 
+    margin-bottom: 20px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.7;
+}
+.Parrafo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.Referencia { 
+    background-color: #fff; 
+    text-align: justify; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #000;
+}
+.Referencia h3 { 
+    text-align: justify; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+.Tema { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    border-top: 4px solid #ff771c;
+}
+.Tema h4 { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    color: #ff771c; 
+    margin-bottom: 10px;
+}
+.Tema p { 
+    display: block; 
+    margin-top: 15px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.6;
+}
+.Tema img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.container-tarjet { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+.tarjetas { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    margin-bottom: 15px; 
+    flex: 1 1 300px; 
+    max-width: 100%;
+}
+.tarjetas:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-color: #2c3e50;
+}
+.header-tarjet { 
+    background-color: #5493d1; 
+    color: white; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.header-tarjet h3 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0;
+}
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 1000; 
+    align-items: center; 
+    justify-content: center;
+}
+.modal-overlay.activo { 
+    display: flex;
+}
+.modal-teoria { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    max-width: 90%; 
+    width: 900px;
+    max-height: 85vh; 
+    overflow-y: auto; 
+    position: relative; 
+    animation: modalAppear 0.3s ease-out;
+}
+.modal-teoria-header { 
+    background-color: #6695c4; 
+    color: white; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-radius: 12px 12px 0 0;
+}
+.modal-teoria-contenido { 
+    padding: 25px; 
+    font-size: clamp(14px, 2vw, 19px); 
+    line-height: 1.7;
+}
+.modal-teoria-contenido img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+.flecha-externa { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.8); 
+    border: none; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: all 0.3s ease;
+}
+.flecha-externa:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+.flecha-izquierda { left: 10px; }
+.flecha-derecha { right: 10px; }
+.cerrar-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+}
+
+/* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+/* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+
+        /* Contenedor general de tarjetas */
+.tarjeta-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta individual */
+.tarjeta1 {
+    background-color: #2980b9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 1000px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Efecto hover */
+.tarjeta1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Títulos dentro de la tarjeta */
+.tarjeta1 h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+/* Texto de la tarjeta */
+.tarjeta1 p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #f8f8f8;
+}
+
+/* Contenido oculto expandable */
+.detalle {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Botón expandir */
+.expand-btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+@keyframes modalAppear { 
+    from { opacity: 0; transform: scale(0.8);} 
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 20px 15px; 
+        margin: 15px 0;
+    }
+    .container-tarjet { 
+        gap: 10px;
+    }
+    .tarjetas { 
+        flex: 1 1 100%;
+    }
+    .modal-teoria { 
+        max-width: 95%; 
+        margin: 10px;
+    }
+    .flecha-externa {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    body { padding: 5px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 15px 10px; 
+        margin: 10px 0;
+    }
+    .modal-teoria-header,
+    .modal-teoria-contenido {
+        padding: 15px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 90%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="Titulo"><h1>Tema 1. ¿Por qué hablar de la actitud de calidad en el trabajo?</h1></div>
+<div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+<div class="citaT-Autor"><h3>"Sin metas, uno se vuelve lo que ya era. Con metas, llega a ser lo que desea."</h3><h3>Anónimo</h3></div>
+<div class="Parrafo"><h2></h2><p>La capacidad de perfeccionamiento que tenemos los seres humanos, se ve reflejada. en la calidad que le imprimimos a las cosas que hacemos. De esta manera, la actitud y la calidad son dos elementos que, unidos, permiten alcanzar estándares de excelencia que impactan de manera notable en el mercado. Tal es el caso de empresas como Bimbo, Cemex y muchas otras medianas y pequeñas que luchan en todos sus frentes por consolidar la calidad de sus productos, teniendo como base el desarrollo de valores y actitudes positivas.</p></div>
+<div class="Parrafo"><h2></h2><p>Entendemos por actitud de calidad:<br><br>
+<strong>La disposición interna que nos conduce a actuar, en nuestras propias circunstancias y situaciones, de tal modo que siempre busquemos el mejor estado posible en cuanto a lo que hacemos.</strong></p></div>
+<div class="Parrafo"><h2></h2><p>Para poder lograr la actitud de calidad en el trabajo, es necesario hacerles saber a los mienbros de una organización la importancia de hacer las cosas adecuadamente, ya que de nada serviría obtener un producto que cumpla con los requisitos establecidos o un servicio adecuado que cumpla con las necesidades del consumidor, si para esto fue necesario repetirlo varias veces o procesarlo repetidamente.</p></div>
+<div class="Parrafo"><h2></h2><p>Lo anterior implica que: El desafío que implica hablar de actitudes de calidad, se traduce en cómo hacer que las personas encuentren en el trabajo que desempeñan un factor de perfeccionamiento personal, a la par que del éxito organizacional.</p>
+<div class="tarjeta-contenedor">
+
+                <!-- Tarjeta Líder humanista -->
+                <div class="tarjeta1">
+                    <h3> La actitud de calidad se transforma así en un catalizador de consecuencias positivas:</h3>
+                    <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('detalle'); this.textContent=this.textContent=='Mostrar más'?'Mostrar menos':'Mostrar más'">Mostrar más</button>
+                    <div class="detalle">
+                        <p>1. Realizar el mayor de los esfuerzos para facilitar con mi trabajo, el que desempeñan mis otros compañeros.<br><br>
+
+                            2. Independientemente de conocer o no al destinatario final de mi trabajo, poner todo mi empeño para que reciba un producto o servicio que le de satisfacción y bienestar.<br><br>
+
+                            3. Cumplir con eficiencia, precisión y rapidez cada actividad como si de ello dependiera el éxito o fracaso de toda la organización.<br><br>
+
+                            4. Hacer cada tarea, servicio o producto como si fuera para mí mismo o para algún miembro de mi familia.<br><br>
+
+                            5. Generar una mayor productividad para beneficio propio y de la empresa.<br><br>
+
+                            6. Reconocer en la capacitación el detonante para enriquecer mis cualidades, conocimientos y habilidades.
+                            </p>
+                    </div>
+                </div>
+        </div>
+
+<p>De esta manera, propiciaremos un ambiente de profesionalismo, cooperación y corresponsabilidad que proyectado en términos económicos, harán de la organización una comunidad para el desarrollo humano, productivo y competitivo.</p></div>
+<div class="Referencia"><h3>QUEDA CLARO QUE PROMOVER ACTITUDES DE CALIDAD OFRECE MAYOR RENTABILIDAD Y ESTABILIDAD A LAS EMPRESAS, PORQUE CREA UN SENTIDO DE PERTENENCIA Y COMPROMISO CIJYOS RESUL TADOS SON OBJETIVOS.</h3></div>
+
+<div class="modal-overlay" id="modal-teoria">
+    <button class="flecha-externa flecha-izquierda" id="flecha-izq-teoria" onclick="navegarTeoria(-1)">←</button>
+    <div class="modal-teoria">
+        <div class="modal-teoria-header">
+            <h3 id="modal-teoria-titulo">Título Teoría</h3>
+        </div>
+        <div class="modal-teoria-contenido" id="modal-teoria-contenido">
+            <!-- Contenido se insertará dinámicamente -->
+        </div>
+        <button class="cerrar-btn" onclick="cerrarTeoriaModal()">X</button>
+    </div>
+    <button class="flecha-externa flecha-derecha" id="flecha-der-teoria" onclick="navegarTeoria(1)">→</button>
+</div>
+
+<div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+<script>
+// MODIFICADO: Sistema de tarjetas por tema
+let temaActual = null;
+let tarjetaActual = 0;
+const temasData = {};
+
+function abrirTeoria(temaIndex, tarjetaIndex) {
+    temaActual = temaIndex;
+    tarjetaActual = tarjetaIndex;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function navegarTeoria(direccion) {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const nuevaTarjeta = tarjetaActual + direccion;
+    
+    if (nuevaTarjeta >= 0 && nuevaTarjeta < totalTarjetas) {
+        tarjetaActual = nuevaTarjeta;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const data = tarjetasDelTema[tarjetaActual];
+    
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = data.contenido;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.style.display = (tarjetaActual <= 0) ? 'none' : 'block';
+    if (flechaDer) flechaDer.style.display = (tarjetaActual >= totalTarjetas-1) ? 'none' : 'block';
+}
+
+function cerrarTeoriaModal() {
+    temaActual = null;
+    tarjetaActual = 0;
+    document.getElementById('modal-teoria').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+// Touch events para móviles
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipedDistance = touchStartX - touchEndX;
+    if (Math.abs(swipedDistance) > 50) {
+        if (swipedDistance > 0) {
+            navegarTeoria(1);
+        } else {
+            navegarTeoria(-1);
+        }
+    }
+}
+
+document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') cerrarTeoriaModal();
+    if(document.getElementById('modal-teoria').classList.contains('activo')){
+        if(e.key==='ArrowLeft') navegarTeoria(-1);
+        if(e.key==='ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-3-1';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a la siguiente página
+            window.location.href = '../2/Tema2.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

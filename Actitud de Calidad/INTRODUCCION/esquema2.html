@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO II</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #2c3e50;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            font-size: 1.4rem;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .topic {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-header {
+            padding: 20px;
+            background: #3498db;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .topic-2 .topic-header {
+            background: #2ecc71;
+        }
+
+        .topic-3 .topic-header {
+            background: #9b59b6;
+        }
+
+        .topic-content {
+            padding: 25px;
+        }
+
+        .sub-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sub-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .sub-item:hover {
+            background: #e8f4fc;
+            transform: translateX(5px);
+        }
+
+        .topic-2 .sub-item {
+            border-left-color: #2ecc71;
+        }
+
+        .topic-3 .sub-item {
+            border-left-color: #9b59b6;
+        }
+
+        .item-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .item-list {
+            list-style-type: none;
+        }
+
+        .item-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .item-list li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.4rem;
+            top: 4px;
+        }
+
+        .topic-2 .item-list li:before {
+            color: #2ecc71;
+        }
+
+        .topic-3 .item-list li:before {
+            color: #9b59b6;
+        }
+
+        .connector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            position: relative;
+        }
+
+        .connector:after {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 3px;
+            background: #3498db;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .topic-header {
+                font-size: 1.3rem;
+            }
+            
+            .sub-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="diagram">
+            <!-- Tema 1 -->
+            <div class="topic topic-1">
+                <div class="topic-header">Tema 1. Concepto de calidad.</div>
+                <div class="topic-content">
+                    <div class="sub-items">
+                        <div class="sub-item">
+                            <div class="item-title">Conceptos clave</div>
+                            <ul class="item-list">
+                                <li>La calidad relacionada con el ser.</li>
+                                <li>La calidad relacionada con la eficiencia del producto.</li>
+                                <li>Elementos que intervienen en la calidad del producto.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="connector"></div>
+
+            <!-- Tema 2 -->
+            <div class="topic topic-2">
+                <div class="topic-header">Tema 2. ¿Cómo desarrollar una cultura de calidad?</div>
+                <div class="topic-content">
+                     <div class="sub-items">
+                        <div class="sub-item">
+                            <div class="item-title"></div>
+                            <ul class="item-list">
+                                <li>Elementos objetivos.</li>
+                                <li>Elementos subjetivos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Tema 3 -->
+            <div class="topic topic-3">
+                <div class="topic-header">Tema 3. Evaluación de la calidad.</div>
+                <div class="topic-content">
+                     <div class="sub-items">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

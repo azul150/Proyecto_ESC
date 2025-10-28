@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODULO I</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    background-color: #f5f5f5; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.Titulo { 
+    text-align: center; 
+    padding: 30px 20px; 
+    margin-bottom: 20px; 
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%); 
+    color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.Titulo h1 { 
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    margin-bottom: 15px; 
+    font-weight: 600;
+}
+.Titulo h2 { 
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+    font-weight: 400; 
+    opacity: 0.9;
+}
+.citaT-Autor { 
+    background-color: #fff; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #555;
+}
+.citaT-Autor h3:first-child { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    margin-bottom: 15px; 
+    line-height: 1.5; 
+    color: #2c3e50;
+}
+.citaT-Autor h3:last-child { 
+    text-align: right; 
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
+    color: #000; 
+    font-style: normal; 
+    margin-top: 10px;
+}
+.Parrafo { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.Parrafo h2 { 
+    font-size: clamp(1.3rem, 3vw, 1.6rem); 
+    margin-bottom: 15px; 
+    color: #2c3e50;
+}
+.Parrafo p { 
+    text-align: justify; 
+    margin-bottom: 20px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.7;
+}
+.Parrafo img {
+    max-width: 100%; /* REDUCIDO de 100% a 80% */
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto; /* Centrado */
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.Referencia { 
+    background-color: #fff; 
+    text-align: justify; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #000;
+}
+.Referencia h3 { 
+    text-align: justify; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+.Tema { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    border-top: 4px solid #ff771c;
+}
+.Tema h4 { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    color: #ff771c; 
+    margin-bottom: 10px;
+}
+.Tema p { 
+    display: block; 
+    margin-top: 15px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.6;
+}
+.Tema img {
+    max-width: 100%; /* REDUCIDO de 100% a 80% */
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto; /* Centrado */
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.container-tarjet { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+.tarjetas { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    margin-bottom: 15px; 
+    flex: 1 1 300px; 
+    max-width: 100%;
+}
+.tarjetas:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-color: #2c3e50;
+}
+.header-tarjet { 
+    background-color: #5493d1; 
+    color: white; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.header-tarjet h3 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0;
+}
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 1000; 
+    align-items: center; 
+    justify-content: center;
+}
+.modal-overlay.activo { 
+    display: flex;
+}
+.modal-teoria { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    max-width: 90%; 
+    width: 900px;
+    max-height: 85vh; 
+    overflow-y: auto; 
+    position: relative; 
+    animation: modalAppear 0.3s ease-out;
+}
+.modal-teoria-header { 
+    background-color: #6695c4; 
+    color: white; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-radius: 12px 12px 0 0;
+}
+.modal-teoria-contenido { 
+    padding: 25px; 
+    font-size: clamp(14px, 2vw, 19px); 
+    line-height: 1.7;
+}
+.modal-teoria-contenido img {
+    max-width: 70%; /* REDUCIDO en el modal también */
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+.flecha-externa { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.8); 
+    border: none; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: all 0.3s ease;
+}
+.flecha-externa:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+.flecha-izquierda { left: 10px; }
+.flecha-derecha { right: 10px; }
+.cerrar-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+}
+/* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+/* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+@keyframes modalAppear { 
+    from { opacity: 0; transform: scale(0.8);} 
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 20px 15px; 
+        margin: 15px 0;
+    }
+    .container-tarjet { 
+        gap: 10px;
+    }
+    .tarjetas { 
+        flex: 1 1 100%;
+    }
+    .modal-teoria { 
+        max-width: 95%; 
+        margin: 10px;
+    }
+    .flecha-externa {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 85%; /* Un poco más grande en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    body { padding: 5px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 15px 10px; 
+        margin: 10px 0;
+    }
+    .modal-teoria-header,
+    .modal-teoria-contenido {
+        padding: 15px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 90%; /* Un poco más grande en móviles */
+    }
+}
+</style>
+</head>
+<body>
+<div class="Titulo"><h1>Tema 1. ¿Qué es la actitud?</h1></div>
+<div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+<div class="citaT-Autor"><h3>"No son las cosas que nos rodean lo que importa, sino nuestra actitud hacia ellas."</h3><h3>Marco Aurelio</h3></div>
+<div class="Referencia"><h3>Actitud es un modo habitual de percibir y de reaccionar, ante los acontecimientos y las personas.<br><br>
+
+La actitud condiciona la relación entre nuestro hacer y nuestro ser, por tanto, la relación entre la personalidad y el comportamiento laboral (Oliveros F, 1978).</h3></div>
+<div class="Referencia"><h3>SEGÚN ROSNOW Y ROBINSON (1967), EL TÉRMINO ACTITUD "DENOTA LA ORGANIZACIÓN DE LOS SENTIMIENTOS, DE LAS CREENCIAS Y LA DISPOSICIÓN DE UN INDIVIDUO PARA COMPORTARSE DE UN MODO DADO".</h3></div>
+<div class="Referencia"><h3>COMO LO SEÑALAN KRECH, CRUTCHFIELD Y BALLACHEY (1962), "LAS ACTITUDES SOCIALES TIENEN UN SIGNIFICADO ADAPTATIVO, YA QUE REPRESENTAN LA INTERACCIÓN ENTRE LAS CAPACIDADES DE PERCIBIR, DE SENTIR Y DE EMPRENDER DE UNA PERSONA, AL MISMO TIEMPO QUE ORDENAN Y DAN SIGNIFICADO A SU EXPERIENCIA EN UN MEDIO SOCIAL" (CFR. LEON MANN, 1972).</h3></div>
+<div class="Parrafo"><h2></h2><p>La actitud es la disposición interior y la forma de hacer frente a las situaciones y tareas que se presentan en un momento y circunstancia determinada. Por ejemplo: cuando estás manejando o vas en algún transporte público rumbo al trabajo y te encuentras con un embotellamiento, puedes manifestar alguna de las siguientes actitudes: enojo, agresividad, desesperación, resignación o paciencia, entre otras. Estas actitudes pueden repercutir en la forma de relacionarte con tus compañeros y en el desempeño de tu trabajo. Pero, ¿a qué se debe que actuemos de una u otra manera?</p></div>
+<div class="Parrafo"><h2></h2><p><strong>Las actitudes expresan valores y tendencias adquiridas que responden a la percepción de un objeto, persona, suceso o situación. En este actuar intervienen además componentes relacionados con la personalidad, como pueden ser el carácter, las emociones y los sentimientos del ser humano. <br>(Cfr. Maggi, 1998).</strong></p></div>
+
+    <div class="Tema" style="border-top-color: #ff771c">
+        <h4 style="color: #ff771c">CARACTERÍSTICAS DE LA ACTITUD</h4>
+        <p>(DICCIONARIO DE LAS CIENCIAS DE LA EDUCACIÓN, 1998)<br><br>
+• ES UNA DISPOSICIÓN DEL SER HUMANO QUE SE PONE DE MANIFIESTO ANTE UNA SITUACIÓN DETERMINADA.<br><br>
+• INCLUYE PROCESOS COGNITIVOS, AFECTIVOS Y VOLITIVOS.<br><br>
+• ES REFERENCIAL; ES DECIR, EVOCA A UN OBJETO O SECTOR DE LA REALIDAD.<br><br>
+• INVOLUCRA TODOS LOS ÁMBITOS Y DIMENSIONES DE LA PERSONA.<br><br></p><div class="container-tarjet"></div></div>
+<div class="Referencia"><h3>Las actitudes son estructuras funcionales que sustentan, impulsan, orientan, condicionan, posibilitan y dan estabilidad a la personalidad (Diccionario de las Ciencias de la Educación, 1998).</h3></div>
+<div class="Parrafo"><h2></h2><p>Las actitudes están presentes en cualquier actividad y momento de la vida; desde que te levantas por la mañana para ir a la escuela, o al trabajo, hasta que te dispones a descansar llegada la noche; en todas las actividades que desempeñas expresas diferentes actitudes.</p></div>
+<div class="Parrafo"><h2></h2><p>En la manifestación de una actitud intervienen emociones y/o sentimientos, sin embargo, cuando esta no es adecuada y quieres modificarla, interviene tu voluntad. En otras palabras, puedes modificar tus actitudes mediante un ejercicio de la voluntad, o bien dejarte llevar por las emociones y/o sentimientos que dieron lugar a ellas y mantenerlas.</p></div>
+<div class="Parrafo"><h2></h2><p>Las actitudes se concretan en una forma específica de comportamiento, que puede conducir al desarrollo de una tarea o bien puede generar errores e incumplimiento en la misma.</p></div>
+<div class="Parrafo"><h2></h2><p>Las circunstancias influyen en el desarrollo de las actitudes. No es lo mismo una actitud positiva en circunstancias de estabilidad, que una cuando existen situaciones de inestabilidad; por ejemplo, cuando algún pariente o amigo ha sufrido algún daño o contratiempo.</p></div>
+
+    <div class="Tema" style="border-top-color: #0080ff">
+        <h4 style="color: #0080ff">Elementos constitutivos de la actitud.</h4>
+        <p>Los elementos que constituyen la actitud son:</p><p style="color: grey;">Haz clic en los botones azules.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(0)"><div class="header-tarjet"><h3>a) Componente Cognitivo</h3></div></div><div class="tarjetas" onclick="abrirTeoria(1)"><div class="header-tarjet"><h3>b) Componente Afectivo</h3></div></div><div class="tarjetas" onclick="abrirTeoria(2)"><div class="header-tarjet"><h3>c) Componente Comportamental</h3></div></div></div><P>Estos tres elementos deben mantener un equilibrio, para poder generar una actitud que conduzca a resultados positivos; de hecho, estos elementos conforman en buena medida la personalidad así como la manera que tiene de aprender el ser humano.</P></div>
+<div class="Parrafo"><h2></h2><p><strong>Ejemplo:</strong><br>
+
+Cuando un trabajador presencia un accidente laboral de algún (os) compañero (s), su actitud de ayuda dependerá de la capacidad que tenga para poder prestar los primeros auxilios al (los) accidentado(s). Esta capacidad estará determinada por el grado de conocimientos que al respecto tenga, por la habilidad en prestar los primeros auxilios y, finalmente, por la experiencia que tenga con relación a este tipo de acciones.</p></div>
+<div class="Parrafo"><h2></h2><p>Teniendo presente la interacción que se da entre los componentes cognitivo, afectivo y comportamental, es importante conocer para qué nos sirven las actitudes.</p></div>
+<div class="Parrafo"><h2>Las actitudes positivas en el ámbito laboral generan:</h2><p>a) Confianza<br>
+b) Certeza<br>
+c) Comunicación<br>
+d) Relaciones humanas armónicas<br>
+e) Clima laboral favorable<br>
+f) Productividad<br>
+g) Calidad<br></p></div>
+<div class="Parrafo"><h2>LA INFLUENCIA DEL ENTORNO</h2><p>OTRO ASPECTO A CONSIDERAR Y QUE DETERMINA EL TIPO DE ACTITUD QUE ADOPTAMOS ANTE UNA SITUACIÓN O CIRCUNSTANCIA ESPECÍFICA, TIENE QUE VER CON EL ENTORNO.<br><br>
+SE TRATA DE UN FENÓMENO CAMBIANTE Y MULTI-FACTORIAL. KELMAN DISTINGUE TRES ASPECTOS FUNDAMENTALES, EN EL PROCESO DE INFLUENCIA SOCIAL DEL ENTORNO.</p></div>
+
+    <div class="Tema" style="border-top-color: #00ec00">
+        <h4 style="color: #00ec00">PROCESO DE INFLUENCIA SOCIAL DEL ENTORNO</h4>
+        <p style="color: grey;">Haz clic en los botones azules.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(3)"><div class="header-tarjet"><h3>1. CONSENTIMIENTO</h3></div></div><div class="tarjetas" onclick="abrirTeoria(4)"><div class="header-tarjet"><h3>2. IDENTIFICACIÓN</h3></div></div></div></div>
+
+    <div class="Tema" style="border-top-color: #ff6ab5">
+        <h4 style="color: #ff6ab5">Clasificación de las actitudes</h4>
+        <p>Ningún ser humano mantiene una misma actitud, frente a las circunstancias y situaciones que se le presentan. Conocer los tipos de actitudes que puedes adoptar o generar en ti y en los demás, te permitirá:<br>
+• Encaminar adecuadamente tus esfuerzos hacia el logro del desarrollo personal y/o el de los demás.<br><br>
+• Distinguir si las actitudes que adoptas, han contribuido a tu plena realización.<br><br>
+• Descubrir qué actitudes son las más adecuadas para mantener relaciones humanas armónicas y de beneficio común.<br><br>
+• Distinguir la actitud de los que te rodean, en circunstancias específicas.</p><div class="container-tarjet"></div></div>
+
+    <div class="Tema" style="border-top-color: #ffffff">
+        <h4 style="color: #ffffff"></h4>
+        <p>Las actitudes se clasifican conforme a los siguientes parámetros:</p><p style="color: grey;">Haz clic en los botones azules.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(5)"><div class="header-tarjet"><h3>De acuerdo al momento en que se presentan</h3></div></div><div class="tarjetas" onclick="abrirTeoria(6)"><div class="header-tarjet"><h3>De acuerdo al comportamiento que generan</h3></div></div><div class="tarjetas" onclick="abrirTeoria(7)"><div class="header-tarjet"><h3>De acuerdo al ámbito en que generan</h3></div></div></div></div>
+
+<div class="modal-overlay" id="modal-teoria">
+    <button class="flecha-externa flecha-izquierda" id="flecha-izq-teoria" onclick="navegarTeoria(-1)">←</button>
+    <div class="modal-teoria">
+        <div class="modal-teoria-header">
+            <h3 id="modal-teoria-titulo">Título Teoría</h3>
+        </div>
+        <div class="modal-teoria-contenido" id="modal-teoria-contenido">
+            <!-- Contenido se insertará dinámicamente -->
+        </div>
+        <button class="cerrar-btn" onclick="cerrarTeoriaModal()">X</button>
+    </div>
+    <button class="flecha-externa flecha-derecha" id="flecha-der-teoria" onclick="navegarTeoria(1)">→</button>
+</div>
+<div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+<script>
+// Tarjetas dinámicas globales
+let teoriaActual = 0;
+const teoriasData = {"0": {"titulo": "a) Componente Cognitivo", "contenido": "Los <strong>conocimientos</strong> y las percepciones que se tienen sobre una situaci\u00f3n presente o futura a la que se enfrenta una persona, estableciendo la tarea que habr\u00e1 de realizar en el momento oportuno. <br><br>Las <strong>habilidades</strong> con que cuenta la persona para llevar a cabo las acciones pertinentes frente a una situaci\u00f3n y que le conducir\u00e1n a un resultado positivo. Estas habilidades son el resultado concreto de la aplicaci\u00f3n de los conocimientos.<br><br>La <strong>experiencia</strong> adquirida, mediante la vivencia y/o ejecuci\u00f3n continua y constante de las acciones que en el momento se exigen, por las circunstancias espec\u00edficas: \"La pr\u00e1ctica hace al maestro\"."}, "1": {"titulo": "b) Componente Afectivo", "contenido": "Las <strong>emociones</strong> y <strong>sentimientos</strong>, reacciones que se manifiestan seg\u00fan el objeto, situaci\u00f3n o persona de referencia."}, "2": {"titulo": "c) Componente Comportamental", "contenido": "Es la tendencia a actuar o a reaccionar de un cierto modo con respecto al objeto; es una orientaci\u00f3n a la acci\u00f3n, es decir, lo que el individuo dice que har\u00e1 o mejor a\u00fan, lo que en realidad hace."}, "3": {"titulo": "1.CONSENTIMIENTO", "contenido": "EL INDIVIDUO ACEPTA LA INFLUENCIA, PORQUE ESPERA OBTENER UNA REACCI\u00d3N FAVORABLE DE OTRA PERSONA O GRUPO. SE TRATA DE UN CASO DE CONSENTIMIENTO EN EL QUE SE ADOPTA P\u00daBLICAMENTE LA OPINI\u00d3N, SIN ASUMIRLA COMO PROPIA. TAN PRONTO COMO DESAPARECE LA PRESI\u00d3N DEL GRUPO SOBRE EL INDIVIDUO, \u00c9STE VUELVE A SU OPINI\u00d3N ORIGINAL.<br><br>POR EJEMPLO: LA COLABORACI\u00d3N MOMENTANEA EN UN EQUIPO DE TRABAJO O EN UN PROYECTO QUE ES IMPORTANTE PARA CUMPLIR UNA META A CORTO PLAZO."}, "4": {"titulo": "2. IDENTIFICACI\u00d3N", "contenido": "OCURRE CUANDO UN INDIVIDUO ADOPTA ACTITUDES DE UN GRUPO, PORQUE SUS RELACIONES CON EL MISMO LE PRODUCEN SATISFACCI\u00d3N Y FORMAN PARTE DE SU AUTOIMAGEN, GENERANDO UN SENTIDO DE PERTENENCIA.<br><br>SE TRATA EN ESTE CASO DE UNA INFLUENCIA SOCIAL NORMATIVA, PROCEDENTE DE LOS GRUPOS DE REFERENCIA CON LOS QUE LA PERSONA EST\u00c1 INTIMAMENTE IDENTIFICADA.<br><br>LAS INTERACCIONES EN LA FAMILIA, SON LA FUENTE DE LAS PRIMERAS Y MAS FUERTES INFLUENCIAS SOBRE LAS ACTITUDES.<br><br>POR EJEMPLO: LA INFLUENCIA NORMATIVA, DE IDEAS Y OPINIONES DE UN EQUIPO DE TRABAJO, O BIEN LOS PREJUICIOS, PREFERENCIAS, VALORES Y CREENCIAS QUE LOS PADRES MANIFIESTAN A LOS HIJOS."}, "5": {"titulo": "De acuerdo al momento en que se presentan", "contenido": "<strong>Primarias</strong>, son las que se tienen inicialmente ante una determinada expectativa de un hecho a\u00fan no sucedido. Ejemplo: tu jefe(a) te ha anunciado que participar\u00e1s en un curso de actualizaci\u00f3n, que complementar\u00e1 tu formaci\u00f3n profesional, por lo tanto, mantienes una actitud positiva ante esa posibilidad.<br><br><strong>Secundarias</strong>, son las que se presentan cuando te enfrentas a la realidad, y compruebas o no, la expectativa que ten\u00edas. En este caso se presentan dos alternativas:<br><br>\u2022 La expectativa se cumple. Tu actitud primaria se refuerza, y en el ejemplo citado est\u00e1s m\u00e1s contento(a) y motivado(a) por participar en el curso.<br><br>\u2022 La expectativa no se cumple. Tu actitud primaria desaparece, y en ese momento surge una nueva actitud."}, "6": {"titulo": "De acuerdo al comportamiento que generan", "contenido": "<strong>Positivas</strong>, aqu\u00e9llas que sin importar si son primarias o secundarias, llevan a un comportamiento que permite enfrentar las situaciones de una manera positiva y a completar la tarea que tienes que realizar. Este tipo de actitudes se pueden ilustrar mediante el refr\u00e1n: \"Al mal tiempo, buena cara\".<br><br><strong>Negativas</strong>, aqu\u00e9llas que sin importar si son primarias o secundarias, llevan a comportamientos que obstaculizan la realizaci\u00f3n de una determinada tarea e impiden enfrentar las situaciones de manera eficaz."}, "7": {"titulo": "De acuerdo al ambito en que generan", "contenido": "Dada la naturaleza social del ser humano y a su desempe\u00f1o en diversos n\u00facleos o sociedades, las actitudes pueden ser:<br><br>\u2022 <strong>Personales</strong>, cuando corresponden a un solo individuo.<br><br>\u2022 <strong>Grupales</strong>, cuando corresponden a un grupo peque\u00f1o de personas que adquieren una misma actitud hacia situaciones que afectan a todos; es el caso de un equipo de trabajo, o de compa\u00f1eros de un mismo sal\u00f3n de clases, etc.<br><br>\u2022 <strong>Sociales</strong>, cuando corresponden a un conjunto numeroso de personas que adquieren una misma actitud hacia situaciones que afectan a la mayor\u00eda; es el caso de una marcha de protesta, de un mitin o de la participaci\u00f3n masiva en eventos de car\u00e1cter pol\u00edtico, deportivo o cultural."}};
+
+function abrirTeoria(numero) {
+    teoriaActual = numero;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function navegarTeoria(direccion) {
+    const nuevaTeoria = teoriaActual + direccion;
+    const totalTeorias = Object.keys(teoriasData).length;
+    if (nuevaTeoria >= 0 && nuevaTeoria < totalTeorias) {
+        teoriaActual = nuevaTeoria;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    const data = teoriasData[teoriaActual];
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = data.contenido;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    const totalTeorias = Object.keys(teoriasData).length;
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.style.display = (teoriaActual <= 0) ? 'none' : 'block';
+    if (flechaDer) flechaDer.style.display = (teoriaActual >= totalTeorias-1) ? 'none' : 'block';
+}
+
+function cerrarTeoriaModal() {
+    document.getElementById('modal-teoria').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+// Touch events para móviles
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipedDistance = touchStartX - touchEndX;
+    if (Math.abs(swipedDistance) > 50) { // Minimum swipe distance
+        if (swipedDistance > 0) {
+            navegarTeoria(1); // Swipe left -> next
+        } else {
+            navegarTeoria(-1); // Swipe right -> previous
+        }
+    }
+}
+
+document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') cerrarTeoriaModal();
+    if(document.getElementById('modal-teoria').classList.contains('activo')){
+        if(e.key==='ArrowLeft') navegarTeoria(-1);
+        if(e.key==='ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-1-1';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar al Tema 2
+            window.location.href = 'sopa.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>
