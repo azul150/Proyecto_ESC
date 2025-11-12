@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO II</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+        
+        /* Estilos para el iframe */
+        .esquema iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-indicator.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor0">
+        <h1>Módulo II Significado del liderazgo</h1><br>
+        <h1>Conclusión</h1>
+    </div>
+
+    <div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+
+    <div class="conte0">
+        <p>El ejercicio del liderazgo humanista como parte de tu vida comienza por: <br><br>
+            El descubrimiento personal que implica el reconocer cualidades y defectos a partir de una revisión de actitudes, 
+            valores y pensamientos propios. Éste a su vez, es el fundamento para obtener un crecimiento en los distintos 
+            ámbitos de la vida, lo que hace ser mejor líder y mejor persona. <br><br>
+            La confianza en tí mismo y en los demás. <br><br>
+        <p2>Optimismo </p2>y certeza de que los objetivos pueden ser alcanzados. El optimismo comprende esperanza y entusiasmo. <br><br>
+        <p2>Integridad y sinceridad</p2>, que incluyen la honestidad, la transparencia y la certeza de ser una persona de 
+            palabra, recta en sus compromisos, fiel en el cumplimiento del deber y digna de la confianza de 
+            quienes la siguen. <br><br>
+        <p2>Conocimiento y comprensión </p2>de lo que debe hacerse y de cómo hacerlo. <br><br>
+        <p2>Decisión</p2>, referente a la capacidad de evaluar las opciones, tomar decisiones y conquistar la aceptación 
+            del grupo. <br><br>
+        <p2>Preocupación </p2>por los demás, extender la mano a todo ser humano. <br><br>
+        <p2>Apertura</p2>, mostrando el deseo de trabajar con quienes tienen puntos de vista y personalidades diferentes, 
+            respetando las opiniones ajenas. <br><br>
+        <p2>Comunicación</p2>, que significa la capacidad, por una parte, de comprender lo que los demás tratan de decir y,
+            por otra, de transmitir claramente las decisiones y planes de acción. <br><br>
+        <p2>Ejemplo</p2>, que se manifiesta en la disposición a apoyar a los miembros del grupo en sus iniciativas y a 
+            ayudarlos en sus tareas. <br><br>
+        <p2>Constancia </p2>en la firmeza del propósito a lograr. <br><br>
+        <p2>Congruencia.</p2></p>
+    </div>
+
+    <div class="contenedor">
+        <h3>Partimos del reconocimiento fundamental de que el trabajador, cualquiera que sea su condición o actividad, 
+            no es un recurso sino una persona, un ser humano. La persona es el nivel donde la naturaleza adquiere 
+            conciencia de sí mismo. Es el único ser capaz de cuestionar y de cuestionarse, por lo tanto, es en la 
+            pregunta donde reside su capacidad de conocer, entendida ésta como la forma primordial para descubrir y 
+            enfrentar la realidad.</h3>
+    </div>
+
+
+    <div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'conclusion2';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a la introduccion del MODULO 2
+            window.location.href = '../INTRODUCCION/modulo3.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

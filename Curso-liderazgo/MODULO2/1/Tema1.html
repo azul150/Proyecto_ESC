@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO II</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+        
+        /* Estilos para el iframe */
+        .esquema iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-indicator.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor0">
+        <h1>TEMA 1. Persona</h1>
+    </div>
+
+    <div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+
+    <div class="conte0">
+        <p>El término persona proviene: del griego prosopon que significa cara o 
+        máscara (trágica o cómica) que era utilizada por los actores de teatro 
+        (García Hoz,1989), del etrusco phersu, que en latín se convierte en personae, 
+        que significa máscara del actor, personaje de teatro (Cf. Fernández de Lara, 1998:18). 
+        Los griegos en sus obras de teatro usaban las máscaras, para simbolizar la parte interna 
+        del hombre. En todo principio, el hombre no se muestra tal cual es, dándose un espacio para 
+        conocer su contexto y a través del tiempo llegar a la autenticidad. El ser humano, se comporta 
+        o actúa de distinta manera, dependiendo del lugar y circunstancia en que se encuentre.<br><br>
+
+        La persona ocupa el lugar más alto entre todos los seres que existen en la naturaleza. El ser 
+        humano como persona, no solo presenta cualidades como ser vivo, sino que se distingue de los 
+        demás por su inteligencia y su voluntad. El ser humano, en su calidad de persona es capaz de 
+        cuestionar y cuestionarse, de tener conciencia de su propio ser y de su propia vida, y sólo 
+        por su libertad es capaz de decidir la trayectoria y fin de su existencia.<br><br>
+
+        La persona posee un cuerpo y un alma. Por medio del cuerpo puede satisfacer sus necesidades 
+        materiales como son: alimentación, salud, vestido, etc. Por medio de su alma conoce, descubre 
+        y valora sus cualidades y capacidades que tiene como ser humano.
+    </p>
+    </div>
+
+    <div class="contenedor">
+        <h3>La persona posee una gran capacidad para amar todo lo que le rodea y de sorprenderse cada día,
+            de lo que percibe por medio de los sentidos</h3>
+    </div>
+
+    <div class="objetivos">
+        <h4>Dimensiones de la persona</h4>
+        <img src="persona.png" alt="Descripción de la imagen" class="img-centro">
+        <p style="color: grey;">Haz clic en los botones azules.</p>
+          <!-- Tarjetas interactivas para estilos de liderazgo -->
+        <div class="tarjetas-container">
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta" onclick="abrirTarjeta(1)">
+                <div class="tarjeta-header">
+                    <h3>La dimensión biofisiológica</h3>
+                    <div class="tarjeta-numero">1</div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta" onclick="abrirTarjeta(2)">
+                <div class="tarjeta-header">
+                    <h3> La dimensión afectiva</h3>
+                    <div class="tarjeta-numero">2</div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="tarjeta" onclick="abrirTarjeta(3)">
+                <div class="tarjeta-header">
+                    <h3> La dimensión racional</h3>
+                    <div class="tarjeta-numero">3</div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4 -->
+            <div class="tarjeta" onclick="abrirTarjeta(4)">
+                <div class="tarjeta-header">
+                    <h3> La dimensión social</h3>
+                    <div class="tarjeta-numero">4</div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 5 -->
+            <div class="tarjeta" onclick="abrirTarjeta(5)">
+                <div class="tarjeta-header">
+                    <h3> La dimensión espiritual</h3>
+                    <div class="tarjeta-numero">5</div>
+                </div>
+            </div>
+    </div>
+    <br><p2>Todas éstas intervienen, se interrelacionan y le dan unidad a la persona, quien busca encontrar un 
+            equilibrio entre ellas.</p2>
+    </div>
+
+    <div class="conte0">
+        <p>Existen otros rasgos constitutivos ó inherentes a la persona:<br><br>
+            <p style="color: grey;">Haz clic en los botones azules.</p>
+        <!-- Tarjetas para Teorías -->
+        <div class="teorias-container">
+            <!-- Teoría 1 -->
+            <div class="teoria-tarjeta" onclick="abrirTeoria(1)">
+                <div class="teoria-header">
+                    <h3>Singularidad</h3>
+                </div>
+            </div>
+            
+            <!-- Teoría 2 -->
+            <div class="teoria-tarjeta" onclick="abrirTeoria(2)">
+                <div class="teoria-header">
+                    <h3>Autonomía</h3>
+                </div>
+            </div>
+            
+            <!-- Teoría 3 -->
+            <div class="teoria-tarjeta" onclick="abrirTeoria(3)">
+                <div class="teoria-header">
+                    <h3>Apertura</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="refe">
+        <h3>Ser autónomo, significa que puedo reorganizar esfuerzos y motivaciones para hacer realidad 
+            mis aspiraciones, afrontar la tarea y desarrollarme como persona.<br><br><br>
+            La persona es capaz de dar y de darse, pero también es capaz para aceptar a otros y de 
+            comunicarse con ellos, transmitiéndoles conocimiento y amor.
+        </h3>  
+    </div>
+
+    <div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+    <!-- Modal para estilos de liderazgo -->
+    <div class="modal-overlay" id="modal-tarjeta">
+         <button class="flecha-externa flecha-izquierda" id="flecha-izq-tarjeta" onclick="navegarTarjeta(-1)">←</button>
+        <div class="modal-tarjeta">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Título</h3>
+                <div class="modal-numero" id="modal-numero">0</div>
+            </div>
+            <div class="modal-contenido" id="modal-contenido">
+                <!-- Contenido se insertará dinámicamente -->
+            </div>
+            <button class="cerrar-btn" onclick="cerrarModal()">×</button>
+        </div>
+         <button class="flecha-externa flecha-derecha" id="flecha-der-tarjeta" onclick="navegarTarjeta(1)">→</button>
+    </div>
+    <!-- Modal para teorías CON FLECHAS -->
+<div class="modal-overlay" id="modal-teoria">
+    <button class="flecha-externa flecha-izquierda" id="flecha-izq-teoria" onclick="navegarTeoria(-1)">←</button>
+    
+    <div class="modal-teoria">
+        <div class="modal-teoria-header">
+            <h3 id="modal-teoria-titulo">Título Teoría</h3>
+        </div>
+        <div class="modal-teoria-contenido" id="modal-teoria-contenido">
+            <!-- Contenido se insertará dinámicamente -->
+        </div>
+        <button class="cerrar-btn" onclick="cerrarTeoriaModal()">×</button>
+    </div>
+    
+    <button class="flecha-externa flecha-derecha" id="flecha-der-teoria" onclick="navegarTeoria(1)">→</button>
+</div>
+    <script>
+// Variables globales para tarjetas
+let tarjetaActual = 1;
+const totalTarjetas = 5;
+
+// Variables globales para teorías  
+let teoriaActual = 1;
+const totalTeorias = 3;
+
+const tarjetasData = {
+     1: {
+                titulo: "La dimensión biofisiológica",
+                contenido: "Se refiere al desarrollo físico del cuerpo y sus funciones, la percepción que se tiene de las cosas mediante los 5 sentidos, el funcionamiento de órganos, aparatos y sistemas que integran el cuerpo humano."
+            },
+            2: {
+                titulo: " La dimensión afectiva",
+                contenido: "Se refiere a la manifestación de los sentimientos y emociones."
+            },
+            3: {
+                titulo: " La dimensión racional",
+                contenido: "Se refiere al desarrollo intelectual y volitivo; es decir, a las facultades exclusivamente humanas: Inteligencia y voluntad."
+            },
+            4: {
+                titulo: " La dimensión social",
+                contenido: "Se refiere a la participación, convivencia e interacción con otras personas."
+            },
+            5: {
+                titulo: " La dimensión espiritual",
+                contenido: "Se refiere a las creencias y valores de la persona que trascienden a través de su trabajo, familia y comunidad."
+            }
+};
+// Datos
+const teoriasData = {
+    1: {
+                titulo: "Singularidad",
+                contenido: "El ser humano es un ser racional que subsiste en la naturaleza, es individual porque puede distinguirse de los demás seres humanos iguales en esencia, pero diferentes en su forma de ser, pensar y actuar."
+            },
+            2: {
+                titulo: "Autonomía",
+                contenido: "En la medida en que la persona actúa con libertad y responsabilidad hace que su realidad sea diferente. Implica el gobierno de sí mismo, sin dejar de interactuar con los demás. Mediante la autonomía, la persona conoce, elige y decide libremente."
+            },
+            3: {
+                titulo: "Apertura",
+                contenido: "La persona tiene la capacidad de relacionarse con los demás y de aceptar las diferencias, reconociendo en ellas una riqueza y una forma de aprendizaje."
+            }
+};
+// ===== FUNCIONES PARA TARJETAS =====
+function abrirTarjeta(numero) {
+    tarjetaActual = numero;
+    actualizarContenidoTarjeta();
+    actualizarFlechasTarjetas();
+    document.getElementById('modal-tarjeta').classList.add('activo');
+}
+
+function navegarTarjeta(direccion) {
+    const nuevaTarjeta = tarjetaActual + direccion;
+    
+    if (nuevaTarjeta >= 1 && nuevaTarjeta <= totalTarjetas) {
+        tarjetaActual = nuevaTarjeta;
+        actualizarContenidoTarjeta();
+        actualizarFlechasTarjetas();
+    }
+}
+
+function actualizarContenidoTarjeta() {
+    const data = tarjetasData[tarjetaActual];
+    if (data) {
+        document.getElementById('modal-titulo').textContent = data.titulo;
+        document.getElementById('modal-numero').textContent = tarjetaActual;
+        document.getElementById('modal-contenido').innerHTML = `<p>${data.contenido}</p>`;
+    }
+}
+
+function actualizarFlechasTarjetas() {
+    const flechaIzq = document.getElementById('flecha-izq-tarjeta');
+    const flechaDer = document.getElementById('flecha-der-tarjeta');
+    
+    if (flechaIzq) flechaIzq.disabled = (tarjetaActual <= 1);
+    if (flechaDer) flechaDer.disabled = (tarjetaActual >= totalTarjetas);
+}
+
+// ===== FUNCIONES PARA TEORÍAS =====  
+function abrirTeoria(numero) {
+    teoriaActual = numero;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+}
+
+function navegarTeoria(direccion) {
+    const nuevaTeoria = teoriaActual + direccion;
+    
+    if (nuevaTeoria >= 1 && nuevaTeoria <= totalTeorias) {
+        teoriaActual = nuevaTeoria;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    const data = teoriasData[teoriaActual];
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = `<p>${data.contenido}</p>`;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.disabled = (teoriaActual <= 1);
+    if (flechaDer) flechaDer.disabled = (teoriaActual >= totalTeorias);
+}
+
+// ===== FUNCIONES DE CIERRE =====
+function cerrarModal() {
+    document.getElementById('modal-tarjeta').classList.remove('activo');
+}
+
+function cerrarTeoriaModal() {
+    document.getElementById('modal-teoria').classList.remove('activo');
+}
+
+// ===== EVENT LISTENERS =====
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-overlay')) {
+        cerrarModal();
+        cerrarTeoriaModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    // Cerrar con Escape
+    if (e.key === 'Escape') {
+        cerrarModal();
+        cerrarTeoriaModal();
+    }
+    
+    // Navegación con teclado para tarjetas
+    if (document.getElementById('modal-tarjeta').classList.contains('activo')) {
+        if (e.key === 'ArrowLeft') navegarTarjeta(-1);
+        if (e.key === 'ArrowRight') navegarTarjeta(1);
+    }
+    
+    // Navegación con teclado para teorías
+    if (document.getElementById('modal-teoria').classList.contains('activo')) {
+        if (e.key === 'ArrowLeft') navegarTeoria(-1);
+        if (e.key === 'ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-2-1';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a la actividad 2
+            window.location.href = 'crucigrama1.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

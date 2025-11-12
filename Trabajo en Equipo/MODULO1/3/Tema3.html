@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODULO I</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    background-color: #f5f5f5; 
+    padding: 20px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+.Titulo { 
+    text-align: center; 
+    padding: 30px 20px; 
+    margin-bottom: 20px; 
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%); 
+    color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.Titulo h1 { 
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    margin-bottom: 15px; 
+    font-weight: 600;
+}
+.Titulo h2 { 
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+    font-weight: 400; 
+    opacity: 0.9;
+}
+.citaT-Autor { 
+    background-color: #fff; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #555;
+}
+.citaT-Autor h3:first-child { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    margin-bottom: 15px; 
+    line-height: 1.5; 
+    color: #2c3e50;
+}
+.citaT-Autor h3:last-child { 
+    text-align: right; 
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
+    color: #000; 
+    font-style: normal; 
+    margin-top: 10px;
+}
+.Parrafo { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.Parrafo h2 { 
+    font-size: clamp(1.3rem, 3vw, 1.6rem); 
+    margin-bottom: 15px; 
+    color: #2c3e50;
+}
+.Parrafo p { 
+    text-align: justify; 
+    margin-bottom: 20px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.7;
+}
+.Parrafo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.Referencia { 
+    background-color: #fff; 
+    text-align: justify; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-left: 5px solid #3498db; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    font-style: italic; 
+    color: #000;
+}
+.Referencia h3 { 
+    text-align: justify; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+.Tema { 
+    background-color: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    border-top: 4px solid #ff771c;
+}
+.Tema h4 { 
+    font-size: clamp(1.2rem, 3vw, 1.4rem); 
+    color: #ff771c; 
+    margin-bottom: 10px;
+}
+.Tema p { 
+    display: block; 
+    margin-top: 15px; 
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
+    line-height: 1.6;
+}
+.Tema img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.container-tarjet { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+.tarjetas { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    margin-bottom: 15px; 
+    flex: 1 1 300px; 
+    max-width: 100%;
+}
+.tarjetas:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-color: #2c3e50;
+}
+.header-tarjet { 
+    background-color: #5493d1; 
+    color: white; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.header-tarjet h3 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0;
+}
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 1000; 
+    align-items: center; 
+    justify-content: center;
+}
+.modal-overlay.activo { 
+    display: flex;
+}
+.modal-teoria { 
+    background-color: white; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    max-width: 90%; 
+    width: 900px;
+    max-height: 85vh; 
+    overflow-y: auto; 
+    position: relative; 
+    animation: modalAppear 0.3s ease-out;
+}
+.modal-teoria-header { 
+    background-color: #6695c4; 
+    color: white; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-radius: 12px 12px 0 0;
+}
+.modal-teoria-contenido { 
+    padding: 25px; 
+    font-size: clamp(14px, 2vw, 19px); 
+    line-height: 1.7;
+}
+.modal-teoria-contenido img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+.flecha-externa { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.8); 
+    border: none; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: all 0.3s ease;
+}
+.flecha-externa:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+.flecha-izquierda { left: 80px; }
+.flecha-derecha { right: 80px; }
+.cerrar-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+}
+
+/* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+/* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+
+@keyframes modalAppear { 
+    from { opacity: 0; transform: scale(0.8);} 
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 20px 15px; 
+        margin: 15px 0;
+    }
+    .container-tarjet { 
+        gap: 10px;
+    }
+    .tarjetas { 
+        flex: 1 1 100%;
+    }
+    .modal-teoria { 
+        max-width: 95%; 
+        margin: 10px;
+    }
+    .flecha-externa {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    body { padding: 5px; }
+    .Titulo, .citaT-Autor, .Parrafo, .Referencia, .Tema { 
+        padding: 15px 10px; 
+        margin: 10px 0;
+    }
+    .modal-teoria-header,
+    .modal-teoria-contenido {
+        padding: 15px;
+    }
+    .Parrafo img,
+    .Tema img {
+        max-width: 90%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="Titulo"><h1>Tema 3. Etapas que intervienen en la conformacion de un equipo de trabajo.</h1></div>
+<div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+<div class="Parrafo"><h2></h2><p>Para la formación de un equipo de trabajo se requiere que sean identificados diferentes elementos como: la interacción de personas para el logro de un objetivo en común, proceso de adaptación de cada integrante al equipo, así como una metodología que
+posibilite el logro de resultados.</p></div>
+
+    <div class="Tema" style="border-top-color: #ff771c">
+        <h4 style="color: #ff771c"></h4>
+        <p>A continuación revisaremos las etapas por las que a traviesan los equipos de trabajo:</p><p style="color: grey;">Haz clic en los botones azules.</p><div class="container-tarjet"><div class="tarjetas" onclick="abrirTeoria(0, 0)"><div class="header-tarjet"><h3>Formación (características)</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 1)"><div class="header-tarjet"><h3>Tumulto (Características)</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 2)"><div class="header-tarjet"><h3>Normatividad (características)</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 3)"><div class="header-tarjet"><h3>Desempeño (características)</h3></div></div><div class="tarjetas" onclick="abrirTeoria(0, 4)"><div class="header-tarjet"><h3>Evaluación de los resultados (características)</h3></div></div></div></div>
+
+<div class="modal-overlay" id="modal-teoria">
+    <button class="flecha-externa flecha-izquierda" id="flecha-izq-teoria" onclick="navegarTeoria(-1)">←</button>
+    <div class="modal-teoria">
+        <div class="modal-teoria-header">
+            <h3 id="modal-teoria-titulo">Título Teoría</h3>
+        </div>
+        <div class="modal-teoria-contenido" id="modal-teoria-contenido">
+            <!-- Contenido se insertará dinámicamente -->
+        </div>
+        <button class="cerrar-btn" onclick="cerrarTeoriaModal()">X</button>
+    </div>
+    <button class="flecha-externa flecha-derecha" id="flecha-der-teoria" onclick="navegarTeoria(1)">→</button>
+</div>
+
+<div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+<script>
+// MODIFICADO: Sistema de tarjetas por tema
+let temaActual = null;
+let tarjetaActual = 0;
+const temasData = {"0": {"tarjetas": [{"titulo": "Formaci\u00f3n (caracter\u00edsticas)", "contenido": "\u2022 Los integrantes se conocen y toman en cuenta el perfil de cada uno de los integrantes. Son cautelosos y evitan responsabilidades.<br><br>\u2022 Descubren paulatinamente los objetivos y prop\u00f3sitos que guiar\u00e1n su trabajo. A\u00fan no est\u00e1n claras las metas ni la direcci\u00f3n. <br><br>\u2022 El nivel de comunicaci\u00f3n es bajo, al igual que la empat\u00eda. <br><br>\u2022 Todav\u00eda es escaso el grado de compromiso con respecto a la misi\u00f3n del equipo. <br><br>\u2022 Las decisiones m\u00e1s importantes est\u00e1n dirigidas por el l\u00edder asignado o por los miembros m\u00e1s sobresalientes. <br><br>\u2022 No hay claridad en las funciones de cada uno de los integrantes.<br><br>En esta etapa es preferible que los miembros brinden confianza y apertura hacia sus compa\u00f1eros a fin de evitar alianzas que se contrapongan y/o divisiones. Se debe poner mucha atenci\u00f3n a que todos comprendan con claridad, cu\u00e1les son las tareas a desempe\u00f1ar."}, {"titulo": "Tumulto (Caracter\u00edsticas)", "contenido": "\u2022 Los miembros del equipo tienen la oportunidad de exponer sus ideas y puntos de vista personales. Manifiestan sus diferencias y polemizan entre s\u00ed. <br><br>\u2022 El papel del l\u00edder consiste en definir los prop\u00f3sitos y los objetivos, orientar las discusiones y conflictos, incluso las disputas, pero finalmente, los ayuda a organizarse y a establecer sus metas. <br><br>\u2022 Es com\u00fan que las discusiones y las diferencias obstaculicen el trabajo y la toma de decisiones. <br><br>\u2022 Los miembros tienden a actuar independientemente. <br><br>\u2022 Aunque hay competencia por el poder y la apropiaci\u00f3n, poco a poco las responsabilidades para cada quien se clarifican.<br><br>Tendr\u00e1n que ser propositivos y aprender a dialogar y negociar; favorecer\u00e1 al equipo asumir la diversidad de las opiniones para llegar a consensar y construir estrategias de soluci\u00f3n a partir de la participaci\u00f3n de todos.<br><br>Es importante considerar las diferencias y tratar de incluir todas las ideas y opiniones. Asimismo, definir los acuerdos de trabajo tomando en cuenta las necesidades de todos los miembros."}, {"titulo": "Normatividad (caracter\u00edsticas)", "contenido": "\u2022 Una vez organizado el equipo y definidos sus objetivos, sus integrantes establecen las normas o acuerdos de trabajo que regular\u00e1n su desempe\u00f1o y sus relaciones interpersonales. <br><br>\u2022 Con el acuerdo, aparece el compromiso de equipo y una tendencia hacia la cohesi\u00f3n. <br><br>\u2022 El equipo gana confianza y se origina un sentimiento de unidad. <br><br>\u2022 Las decisiones m\u00e1s importantes del equipo se toman por consenso. <br><br>\u2022 Aparece la negociaci\u00f3n como un recurso para alivianar las diferencias. <br><br>\u2022 Los roles son aceptados y el qu\u00e9, el c\u00f3mo, el qui\u00e9n y cu\u00e1ndo se clarifican.<br><br>Es preciso implementar un proceso que garantice a los participantes, compartir la informaci\u00f3n y la retroalimentaci\u00f3n. Tambi\u00e9n es recomendable que el equipo aprenda a negociar y a trabajar a partir del consenso."}, {"titulo": "Desempe\u00f1o (caracter\u00edsticas)", "contenido": "\u2022 En esta etapa, el equipo ya estableci\u00f3 su identidad y encontr\u00f3 su integraci\u00f3n, es decir, se ha convertido en la unidad de desempe\u00f1o productiva que se esperaba. <br><br>\u2022 Se comparte un compromiso para alcanzar el objetivo. <br><br>\u2022 Prevalecen las decisiones por consenso. <br><br>\u2022 Los integrantes desarrollan una actitud de autonom\u00eda y se responsabilizan de sus funciones. <br><br>\u2022 Los miembros trabajan proactivamente para el beneficio del equipo.<br><br>Los integrantes asumir\u00e1n por completo su compromiso y llevar\u00e1n a cabo las funciones encomendadas. Asimismo y en todo momento deber\u00e1n privilegiar el bien com\u00fan por encima del beneficio individual."}, {"titulo": "Evaluaci\u00f3n de los resultados (caracter\u00edsticas)", "contenido": "\u2022 Cuando las metas en com\u00fan se han cumplido y dependiendo de los resultados, el equipo puede disolverse, o bien, transformarse. Entonces, considerando esta estrategia, deber\u00e1 reformular su enfoque o cambiar a sus miembros; es decir, renovarse.<br><br>Celebrar y reconocer los logros del equipo es una tarea muy importante que se debe llevar a cabo."}]}};
+
+function abrirTeoria(temaIndex, tarjetaIndex) {
+    temaActual = temaIndex;
+    tarjetaActual = tarjetaIndex;
+    actualizarContenidoTeoria();
+    actualizarFlechasTeorias();
+    document.getElementById('modal-teoria').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function navegarTeoria(direccion) {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const nuevaTarjeta = tarjetaActual + direccion;
+    
+    if (nuevaTarjeta >= 0 && nuevaTarjeta < totalTarjetas) {
+        tarjetaActual = nuevaTarjeta;
+        actualizarContenidoTeoria();
+        actualizarFlechasTeorias();
+    }
+}
+
+function actualizarContenidoTeoria() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const data = tarjetasDelTema[tarjetaActual];
+    
+    if (data) {
+        document.getElementById('modal-teoria-titulo').textContent = data.titulo;
+        document.getElementById('modal-teoria-contenido').innerHTML = data.contenido;
+    }
+}
+
+function actualizarFlechasTeorias() {
+    if (temaActual === null) return;
+    
+    const tarjetasDelTema = temasData[temaActual].tarjetas;
+    const totalTarjetas = tarjetasDelTema.length;
+    const flechaIzq = document.getElementById('flecha-izq-teoria');
+    const flechaDer = document.getElementById('flecha-der-teoria');
+    
+    if (flechaIzq) flechaIzq.style.display = (tarjetaActual <= 0) ? 'none' : 'block';
+    if (flechaDer) flechaDer.style.display = (tarjetaActual >= totalTarjetas-1) ? 'none' : 'block';
+}
+
+function cerrarTeoriaModal() {
+    temaActual = null;
+    tarjetaActual = 0;
+    document.getElementById('modal-teoria').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+// Touch events para móviles
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipedDistance = touchStartX - touchEndX;
+    if (Math.abs(swipedDistance) > 50) {
+        if (swipedDistance > 0) {
+            navegarTeoria(1);
+        } else {
+            navegarTeoria(-1);
+        }
+    }
+}
+
+document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') cerrarTeoriaModal();
+    if(document.getElementById('modal-teoria').classList.contains('activo')){
+        if(e.key==='ArrowLeft') navegarTeoria(-1);
+        if(e.key==='ArrowRight') navegarTeoria(1);
+    }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-1-3';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a la siguiente página
+            window.location.href = '../conclusion.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+    <script src="../../MATY/MATY.js"></script>
+</body>
+</html>

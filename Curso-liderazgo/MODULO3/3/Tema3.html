@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULO III</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para la navegación */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #34495e;
+        }
+        
+        /* Estilos para el iframe */
+        .esquema iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Indicador de progreso */
+        .progress-indicator {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-indicator.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor0">
+        <h1>TEMA 3. El Liderazgo humanista y el trabajo en equipo</h1>
+    </div>
+
+    <div class="progress-indicator" id="progress-indicator">
+        <p>✅ Esta actividad ha sido marcada como completada en tu progreso</p>
+    </div>
+
+    <div class="contenedor">
+        <h3>“El líder debe encontrar la manera de comunicar su visión, para atraer y entusiasmar a la gente.”</h3>
+        <h3>David E. Berlew</h3>
+    </div>
+
+    <div class="conte0">
+         <h2>¿Qué es un equipo de trabajo?</h2><br>
+        <p>UN EQUIPO DE TRABAJO SE DEFINE COMO UN CONJUNTO DE PERSONAS QUE POSEEN UN OBJETIVO COMÚN, EXISTE 
+            INTERDEPENDENCIA ENTRE ELLAS PARA LA REALIZACIÓN DE SUS ACTIVIDADES, QUE SE RIGEN POR UN MARCO NORMATIVO 
+            ÚNICO Y EN DONDE CADA INTEGRANTE, APORTA SUS CONOCIMIENTOS Y HABILIDADES PARA LOGRAR EL CUMPLIMIENTO DE 
+            DICHO OBJETIVO.</p>
+    </div>
+
+    <div class="conte0">
+        <p>En un equipo de trabajo, el líder sabe que depende de los demás, así como éstos dependen de él. <br><br>
+           Esta relación de interdependencia es fundamental, ya que si una o varias personas no aportan los 
+           conocimientos y las habilidades que requiere el equipo, se impide el logro de los objetivos propuestos.</p>
+    </div>
+
+    <div class="contenedor">
+        <h1>En un equipo de trabajo, el líder toma la decisión de aportar lo mejor de su persona, de sus conocimientos y 
+            habilidades para trabajar óptimamente con sus compañeros, hacia la consecución del fin.</h1>
+    </div>
+
+    <div class="conte0">
+         <h2>¿Cómo influye el liderazgo en el trabajo en equipo?</h2><br>
+        <p>TRABAJAR EN EQUIPO LLEVA CONSIGO LA DISPOSICIÓN PERSONAL DE CADA MIEMBRO, BASADA EN SU DESEO DE INTEGRACIÓN, 
+            DE RELACIONARSE CON LOS DEMÁS, DE APROPIARSE DE LAS NORMAS DE CONVIVENCIA Y, DE ENFRENTAR LOS PROBLEMAS Y 
+            DIFICULTADES QUE ENFRENTA LA ORGANIZACIÓN A LA QUE PERTENECE. <br><br>
+            COMUNMENTE LOS INTEGRANTES DE UN EQUIPO SE CONCENTRAN EN ALCANZAR SUS METAS INDIVIDUALES, Y SE OLVIDAN 
+            QUE EL TRABAJO DE EQUIPO TIENE METAS COMUNES Y OBJETIVOS ORGANIZACIONALES.</p>
+    </div>
+
+    <div class="conte0">
+        <p>El líder primero debe conocer a su equipo, organizar y buscar las cualidades y virtudes de cada uno de sus 
+            integrantes. El trabajo en equipo consiste en aportar lo mejor de cada uno y lograr la interacción para 
+            alcanzar metas y objetivos comunes.</p>
+    </div>
+
+    <div class="objetivos">
+        <h4>El liderazgo en la cobertura de necesidades</h4>
+        <p2>El líder tiene necesidades y trabaja para satisfacerlas; sin embargo, frecuentemente olvidamos que en 
+            la convivencia grupal, también existen algunas que se deben cubrir. <br><br>
+            Existen tres necesidades importantes en todo grupo u organización: <br><br>
+        </p2>
+        <div class="tarjeta-contenedor">
+        <!-- Tarjeta La necesidad de realizar algo. -->
+                <div class="tarjeta2">
+                    <h3>La necesidad de realizar algo.</h3>
+                    <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('detalle'); this.textContent=this.textContent=='Mostrar más'?'Mostrar menos':'Mostrar más'">Mostrar más</button>
+                    <div class="detalle">
+                        <p>Independientemente de la tarea, el líder orienta al grupo para llevar a cabo un proyecto. 
+                            Puede tratarse de la preparación de una conferencia, la solución de un problema o el aprendizaje de 
+                            un nuevo procedimiento. <br><br>
+                            Los miembros de un equipo o grupo buscan el cumplimiento de los objetivos, pero mientras la actividad 
+                            permanece inacabada los integrantes aportan sus ideas, experiencia y conocimientos para completar la 
+                            tarea. </p>
+                    </div>
+                </div>
+        <!-- Tarjeta Necesidad de relación en el trabajo. -->
+                <div class="tarjeta2">
+                    <h3>Necesidad de relación en el trabajo.</h3>
+                    <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('detalle'); this.textContent=this.textContent=='Mostrar más'?'Mostrar menos':'Mostrar más'">Mostrar más</button>
+                    <div class="detalle">
+                        <p>Los compañeros necesitan relacionarse adecuadamente en el trabajo para realizar la tarea. Implica aceptar 
+                            al otro y mirar por los demás, intentando que todas las sugerencias y aportaciones sean constructivas y 
+                            propositivas, para facilitar el desarrollo de las actividades. </p>
+                    </div>
+                </div>
+        <!-- Tarjeta La necesidad de satisfacción. -->
+                <div class="tarjeta2">  
+                    <h3>La necesidad de satisfacción.</h3>
+                    <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('detalle'); this.textContent=this.textContent=='Mostrar más'?'Mostrar menos':'Mostrar más'">Mostrar más</button>
+                    <div class="detalle">
+                        <p>Las personas trabajan en grupo no sólo por el interés en las tareas, sino por la satisfacción de necesidades 
+                            personales, como el compartir experiencias, el reconocimiento, comunicar ideas o pensamientos, la adquisición 
+                            de nuevas y mayores experiencias, el encontrar lazos de amistad y de comunión con los demás.</p>
+                    </div>
+                </div>
+    </div>
+    <br><p2> La eficacia en un equipo de trabajo consiste en satisfacer las necesidades personales y del grupo, realizar 
+            las actividades previstas y descubrir la capacidad que tienen cada uno de los miembros para elegir las 
+            tareas que exigen mayor dedicación y esfuerzo.</p2>
+</div>
+
+    <div class="refe">
+        <h3>¿Cuáles son las etapas del trabajo en equipo? <br><br>
+            El trabajo en equipo depende de la capacidad para aprender de los demás. <br><br>
+            Las etapas para su desarrollo son: <br>
+            • Organización y control. <br>
+            • Aceptación mutua. <br>
+            • Comunicación y toma de decisiones. <br>
+            • Motivación y productividad.</h3>  
+    </div>
+
+    <div class="page-navigation">
+        <button class="nav-btn prev" onclick="goBack()">
+            ← Volver al Curso
+        </button>
+        
+        <button class="nav-btn next" id="next-button">
+            Siguiente Tema →
+        </button>
+    </div>
+
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // ==========================
+        // SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-3-3';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar indicador de progreso
+            document.getElementById('progress-indicator').classList.add('visible');
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-indicator').classList.add('visible');
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Función para navegar al siguiente tema
+        function goNext() {
+            console.log('Función goNext() ejecutada');
+            
+            // Primero marcar como completado si no lo está
+            if (!checkActivityStatus()) {
+                markActivityCompleted();
+            }
+            
+            // Navegar a tema 4
+            window.location.href = 'foro.html';
+        }
+        
+        // Función para volver al curso
+        function goBack() {
+            window.location.href = '../../index.html';
+        }
+        
+        // Cuando la página carga, verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página cargada');
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                console.log('Usuario encontrado:', currentUser.fullname);
+                
+                // Si la actividad no está marcada como completada, marcarla
+                if (!checkActivityStatus()) {
+                    markActivityCompleted();
+                }
+                
+                // Agregar event listener al botón de siguiente
+                document.getElementById('next-button').addEventListener('click', goNext);
+                
+            } else {
+                console.log('No hay usuario logueado');
+                
+                // Si no hay usuario, ocultar los botones de navegación
+                document.querySelector('.page-navigation').style.display = 'none';
+                alert('Por favor, inicia sesión en el curso primero.');
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

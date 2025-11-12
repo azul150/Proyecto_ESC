@@ -1,0 +1,700 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.1rem; /* Tamaño base unificado */
+}
+
+/* Encabezado principal - EXCLUIDO del tamaño base */
+.contenedor0 {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor0 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenedor0 h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Cita destacada */
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.contenedor h3:first-child {
+    text-align: justify;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #0a0a0a;
+}
+
+/* Cita destacada */
+.refe {
+    background-color: #fff;
+    text-align: justify;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-style: italic;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.refe h3 {
+    text-align: justify;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* ************************************************************************************************ */
+/* Contenido de texto */
+.conte0 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+}
+
+.conte0 p, .conte0 p1 {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p2{
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.conte0 p1 {
+    display: block;
+}
+
+/* Sección de Tipos de liderazgo */
+.objetivos {
+    text-align: justify;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #00b7ffe0;
+    font-size: 1.1rem;
+}
+
+.objetivos h4 {
+    font-size: 1.3rem;
+    color: #02b7ff;
+    margin-bottom: 10px;
+}
+
+.objetivos p2 {
+    display: block;
+    font-weight: normal;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.objetivos p{
+     font-weight: bold;
+}
+
+/* Liderazgo Tipos */
+.TiposL {
+    text-align: justify;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ff9900;
+    font-size: 1.1rem;
+}
+
+.TiposL h4 {
+    font-size: 1.3rem;
+    color: #ff9900;
+    margin-bottom: 10px;
+}
+
+.TiposL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.img-centro {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Liderazgo Estilos */
+.EstilosL {
+    text-align: justify;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ad00f1e0;
+    font-size: 1.1rem;
+}
+
+.EstilosL h4 {
+    font-size: 1.3rem;
+    color: #ad00f1e0;
+    margin-bottom: 10px;
+}
+
+.EstilosL p {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.EstilosL p2{
+     font-weight: bold;
+}
+
+/**************************************************************************************++*/
+
+/* Texto final */
+body > p {
+    text-align: center;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-arrow button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: white;
+  color: #3498db;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pagination-arrow button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-arrow span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Estilos para las tarjetas interactivas */
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border-color: #2980b9;
+}
+
+.tarjeta-header {
+    background-color: #2980b9;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tarjeta-header h3{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.tarjeta-numero {
+    background-color: white;
+    color: #2980b9;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Modal para tarjetas expandidas */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal-tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    background-color: #2980b9;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-header h3{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.modal-numero {
+    background-color: white;
+    color: #2980b9;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.modal-contenido {
+    padding: 25px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.modal-contenido p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Botón de cerrar */
+.cerrar-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.cerrar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Estilos base de flechas */
+.flecha-externa {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 0 20px;
+    z-index: 1001;
+    color: #2980b9;
+}
+
+.flecha-externa:hover {
+    background-color: #2980b9;
+    color: white;
+    transform: scale(1.1);
+}
+
+.flecha-externa:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .flecha-externa {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flecha-externa {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        margin: 0 5px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .flecha-izquierda { left: 5px; }
+    .flecha-derecha { right: 5px; }
+}
+
+/* Contenedor general de tarjetas */
+.tarjeta-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta individual */
+.tarjeta1 {
+    background-color: #2980b9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 1070px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Efecto hover */
+.tarjeta1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Títulos dentro de la tarjeta */
+.tarjeta1 h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+/* Texto de la tarjeta */
+.tarjeta1 p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #f8f8f8;
+}
+
+/* Contenido oculto expandable */
+.detalle {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Botón expandir */
+.expand-btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Contenedor general de tarjetas */
+.tarjeta-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta individual */
+.tarjeta2 {
+    background-color: #2980b9;
+    border-radius: 13px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Efecto hover */
+.tarjeta2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Títulos dentro de la tarjeta */
+.tarjeta2 h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+/* Texto de la tarjeta */
+.tarjeta2 p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #f8f8f8;
+}
+
+/**************************************************************************************++*/
+/* SISTEMA RESPONSIVE ACTUALIZADO */
+/**************************************************************************************++*/
+
+/* Tablet (768px) */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.7rem;
+    }
+    
+    .pagination-arrow {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .tarjeta1 {
+        width: 90%;
+    }
+}
+
+/* Small Desktops and Laptops (992px) */
+@media screen and (min-width: 992px) {
+    body {
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+    
+    .contenedor0 {
+        padding: 40px 30px;
+    }
+    
+    .tarjeta1 {
+        width: 1070px;
+    }
+}
+
+/* Large Desktops (1200px) */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .conte0 p, .conte0 p1, .conte0 p2,
+    .objetivos p, .TiposL p, .EstilosL p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+}
+
+/* Small Phones (600px) */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .contenedor0 {
+        padding: 20px 15px;
+    }
+    
+    .contenedor0 h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenedor0 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .contenedor, .conte0, .objetivos, .TiposL, .EstilosL, .refe {
+        padding: 20px;
+        margin: 15px 0;
+        font-size: 1rem;
+    }
+    
+    .conte0 p, .conte0 p1, .conte0 p2,
+    .objetivos p, .objetivos p2, .TiposL p, .EstilosL p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .contenedor h3:first-child,
+    .refe h3,
+    .objetivos h4,
+    .TiposL h4,
+    .EstilosL h4,
+    .tarjeta-header h3,
+    .modal-header h3,
+    .tarjeta1 h3,
+    .tarjeta2 h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tarjetas-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .tarjeta1 {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .tarjeta2 {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .pagination-arrow {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pagination-arrow button {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .modal-tarjeta {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-contenido {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .modal-contenido p {
+        font-size: 1rem;
+    }
+}

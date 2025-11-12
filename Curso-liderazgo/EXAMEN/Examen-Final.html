@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Liderazgo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            background-color: #e9f7fe;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        .question {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 3px solid #3498db;
+        }
+        .options {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .true-false {
+            display: flex;
+            gap: 30px;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        .results {
+            display: none;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            border-left: 4px solid #2ecc71;
+        }
+        .score-display {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        .section-title {
+            background-color: #34495e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 25px 0 15px 0;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .disabled {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .progress-message {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+            display: none;
+        }
+        .bonus-points {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            text-align: center;
+            font-weight: bold;
+        }
+        .not-passed-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+            display: none;
+        }
+        .download-container {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .download-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #218838;
+        }
+        /* 🔹 Responsividad */
+    @media (max-width: 768px) {
+        body {
+            font-size: 1rem;
+            padding: 15px;
+        }
+
+        .options, .true-false {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            width: 100%;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            font-size: 0.95rem;
+            padding: 10px;
+        }
+
+        .header {
+            font-size: 1.3rem;
+            padding: 12px;
+        }
+
+        .instructions, .question {
+            font-size: 0.95rem;
+            padding: 12px;
+        }
+
+        .score-display {
+            font-size: 1.2rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Curso: Liderazgo</h1>
+        <h2>Evaluación Final</h2>
+    </div>
+    
+    <form id="evaluation-form">
+        <!-- Las secciones se generarán dinámicamente aquí -->
+    </form>
+
+    <div class="results" id="results">
+        <h2>Resultados de la Evaluación</h2>
+        <div id="score" class="score-display"></div>
+        
+        <!-- Mensaje de puntos extra -->
+        <div class="bonus-points" id="bonus-points">
+            Foro(3): +5 puntos
+        </div>
+
+        <!-- Mensaje de progreso actualizado -->
+        <div class="progress-message" id="progress-message">
+            ✅ Progreso actualizado: Esta evaluación ha sido marcada como completada
+        </div>
+
+          <!-- Mensaje para cuando no se alcanza el 80% -->
+        <div class="not-passed-message" id="not-passed-message">
+            ❌ Necesitas al menos 80% para descargar el comprobante. Por favor, intenta nuevamente.
+        </div>
+        
+        <!-- Contenedor para el botón de descarga (solo visible con 80% o más) -->
+        <div class="download-container" id="download-container">
+            <button class="download-btn" id="download-btn">
+                📄 Descargar Comprobante
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // URL de tu script de Google Apps 
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTNHrXCd9l-NBsSZl9kweYoqgWhp5etP40lNRAV21FnUkmehLXcgVOSOyYzaAB3J9kKA/exec';
+        
+        // Definición de todas las preguntas organizadas por secciones
+        const sections = [
+            {
+                title: "Verdadero/Falso",
+                instructions: "Selecciona la opción de FALSO o VERDADERO que consideres adecuada para cada enunciado.",
+                type: "true-false",
+                questions: [
+                    {
+                        text: "El liderazgo es la habilidad y la acción que se tiene para orientar, influir, conducir y dirigir a otros para el logro de una meta personal, aplicando todo tipo de recursos.",
+                        correct: "false"
+                    },
+                    {
+                        text: "El liderazgo involucra un conjunto de relaciones entre seres humanos, en donde uno de ellos asumirá la responsabilidad de conocer las capacidades, habilidades y destrezas propias, y de quienes forman el grupo, para impulsar su desarrollo y coordinar los esfuerzos para lograr objetivos comunes.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El liderazgo es un rol susceptible de ser adoptado por cualquier ser humano independientemente de su nivel educativo, jerárquico u ocupacional.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El liderazgo formal es impuesto por la autoridad y generalmente se asocia a los jefes o directivos.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El liderazgo informal se fundamenta en el autoritarismo y don de mando de un jefe.",
+                        correct: "false"
+                    },
+                    {
+                        text: "El estilo facultativo de liderazgo se caracteriza por delegar actividades a todos los miembros del grupo sin importar sus características, ya que se confía en la capacidad de cada miembro en el equipo.",
+                        correct: "false"
+                    },
+                    {
+                        text: "Un líder maquiavélico opera en falta absoluta de principios éticos ya que el fin justifica los medios, no respeta ley en su afán de mantener el poder.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El liderazgo se ejerce en distintos ámbitos, como pueden ser la comunidad, la escuela, la familia.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El liderazgo influye en otros, ya que implica no solo satisfacer las necesidades primordiales de las personas, sino también preocuparse por necesidades como el afecto y el bien común.",
+                        correct: "true"
+                    },
+                    {
+                        text: "El líder es quien identifica tanto sus capacidades, habilidades, cualidades y actitudes, como las de sus colaboradores, con la finalidad de lograr sus tareas personales.",
+                        correct: "false"
+                    }
+                ]
+            },
+            {
+                title: "Estilo/Tipo de Liderazgo",
+                instructions: "Selecciona si cada enunciado se refiere a un ESTILO DE LIDERAZGO o a un TIPO DE LIDERAZGO.",
+                type: "style-type",
+                questions: [
+                    {
+                        text: "Se nombra liderazgo formal cuando se le delega a una persona el cargo por mandato o posición.",
+                        correct: "tipo"
+                    },
+                    {
+                        text: "En el liderazgo personal se da cuando se tiene la cualidad de saber escuchar opiniones del personal integrante de un equipo.",
+                        correct: "estilo"
+                    },
+                    {
+                        text: "Liderazgo informal es el otorgado y reconocido por los colaboradores o miembros de un grupo.",
+                        correct: "tipo"
+                    },
+                    {
+                        text: "Un líder humanista resalta la importancia del trabajador como ser humano.",
+                        correct: "estilo"
+                    },
+                    {
+                        text: "El liderazgo por resultados conduce a los subordinados al logro de objetivos.",
+                        correct: "estilo"
+                    },
+                    {
+                        text: "El líder tradicional hereda el poder por costumbre o por pertenecer a un grupo familiar.",
+                        correct: "tipo"
+                    },
+                    {
+                        text: "En el liderazgo democrático cada miembro aporta de sí para un resultado de equipo.",
+                        correct: "tipo"
+                    },
+                    {
+                        text: "El líder se centra en valores, promueve en sus colaboradores a seguir un código ético.",
+                        correct: "estilo"
+                    },
+                    {
+                        text: "Al mantener una dependencia por sobre protección se dice que se da un _____ paternalista.",
+                        correct: "tipo"
+                    },
+                    {
+                        text: "Cuando el liderazgo es legal, por ser elegido por métodos oficiales como elecciones o votaciones, ¿se habla de?",
+                        correct: "tipo"
+                    }
+                ]
+            },
+            {
+                title: "Elementos de Liderazgo Humanista",
+                instructions: "Selecciona CUATRO elementos básicos para ejercer un liderazgo con enfoque humanista.",
+                type: "checkbox",
+                questions: [
+                    {
+                        text: "Selecciona CUATRO elementos básicos para ejercer un liderazgo con enfoque humanista.",
+                        options: [
+                            {text: "Obtener resultados a toda costa.", value: "a"},
+                            {text: "Manejar adecuadamente las relaciones humanas.", value: "b", correct: true},
+                            {text: "Autoconocimiento.", value: "c", correct: true},
+                            {text: "Mantener una actitud reservada a la retroalimentación.", value: "d"},
+                            {text: "Enfoque en la tarea.", value: "e"},
+                            {text: "Reconocer la dignidad de la persona.", value: "f", correct: true},
+                            {text: "Motivación y visión compartida.", value: "g", correct: true},
+                            {text: "Conocer alternativas de solución.", value: "h"}
+                        ],
+                        correct: ["b", "c", "f", "g"]
+                    }
+                ]
+            },
+            {
+                title: "Relacionar Conceptos",
+                instructions: "Selecciona la opción correcta.",
+                type: "relate",
+                questions: [
+                    {
+                        text: "Define claramente la visión y el objetivo general.",
+                        options: [
+                            {text: "Jefe de proyecto", value: "1"},
+                            {text: "Líder", value: "2", correct: true},
+                            {text: "Dueño de la empresa", value: "3"}
+                        ],
+                        correct: "2"
+                    },
+                    {
+                        text: "Le es básico conocer la situación real, ya que esto le permite preparar la estrategia de avance a objetivos.",
+                        options: [
+                            {text: "Jefe de proyecto", value: "1", correct: true},
+                            {text: "Líder", value: "2"},
+                            {text: "Dueño de la empresa", value: "3"}
+                        ],
+                        correct: "1"
+                    },
+                    {
+                        text: "Genera un clima de confianza y motivación en el trabajo.",
+                        options: [
+                            {text: "Jefe de proyecto", value: "1"},
+                            {text: "Líder", value: "2", correct: true},
+                            {text: "Dueño de la empresa", value: "3"}
+                        ],
+                        correct: "2"
+                    },
+                    {
+                        text: "Maneja asertivamente las relaciones interpersonales.",
+                        options: [
+                            {text: "Jefe de proyecto", value: "1"},
+                            {text: "Líder", value: "2", correct: true},
+                            {text: "Dueño de la empresa", value: "3"}
+                        ],
+                        correct: "2"
+                    },
+                    {
+                        text: "Es el primer responsable del resultado del proyecto.",
+                        options: [
+                            {text: "Jefe de proyecto", value: "1", correct: true},
+                            {text: "Líder", value: "2"},
+                            {text: "Dueño de la empresa", value: "3"}
+                        ],
+                        correct: "1"
+                    }
+                ]
+            },
+            {
+                title: "Opción Múltiple",
+                instructions: "Selecciona la opción correcta para completar cada frase.",
+                type: "multiple",
+                questions: [
+                    {
+                        text: "Es el liderazgo que promueve los valores, lo cual da un significado a las tareas.",
+                        options: [
+                            {text: "a) Humanista", value: "a", correct: true},
+                            {text: "b) Legal", value: "b"}
+                        ],
+                        correct: "a"
+                    },
+                    {
+                        text: "Un buen líder identifica capacidades, habilidades, cualidades y_____de sus colaboradores.",
+                        options: [
+                            {text: "a) Actitudes", value: "a", correct: true},
+                            {text: "b) Objetivos", value: "b"}
+                        ],
+                        correct: "a"
+                    },
+                    {
+                        text: "Martin Luther King, se distinguió por su liderazgo.",
+                        options: [
+                            {text: "a) Paternalista", value: "a"},
+                            {text: "b) Humanista", value: "b", correct: true}
+                        ],
+                        correct: "b"
+                    },
+                    {
+                        text: "Adolfo Hitler, se caracterizó por un liderazgo.",
+                        options: [
+                            {text: "a) Maquiavélico", value: "a", correct: true},
+                            {text: "b) Racional", value: "b"}
+                        ],
+                        correct: "a"
+                    },
+                    {
+                        text: "Característica importante de un líder humanista.",
+                        options: [
+                            {text: "a) Organizar al grupo para cumplir objetivos", value: "a", correct: true},
+                            {text: "b) Pertenecer a la familia", value: "b"}
+                        ],
+                        correct: "a"
+                    }
+                ]
+            }
+        ];
+
+        // Variable global para almacenar el mapeo de preguntas
+        let questionMapping = [];
+
+        // Función para mezclar un array (algoritmo Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Función para generar el formulario con secciones aleatorias
+        function generateForm() {
+            const form = document.getElementById('evaluation-form');
+            form.innerHTML = '';
+            questionMapping = []; // Reiniciar el mapeo
+            
+            // Mezclar las secciones
+            const shuffledSections = shuffleArray([...sections]);
+            
+            let questionCounter = 1;
+            
+            shuffledSections.forEach((section, sectionIndex) => {
+                // Crear título de sección
+                const sectionTitle = document.createElement('div');
+                sectionTitle.className = 'section-title';
+                sectionTitle.innerHTML = `<h2>Sección ${sectionIndex + 1}: ${section.title}</h2>`;
+                form.appendChild(sectionTitle);
+                
+                // Crear instrucciones
+                const instructions = document.createElement('div');
+                instructions.className = 'instructions';
+                instructions.innerHTML = `<h3>Instrucciones:</h3><p>${section.instructions}</p>`;
+                form.appendChild(instructions);
+                
+                // Crear preguntas
+                section.questions.forEach((question, questionIndex) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question';
+                    
+                    let questionHTML = `<p><strong>${questionCounter}.</strong> ${question.text}</p>`;
+                    
+                    if (section.type === 'true-false') {
+                        questionHTML += `
+                            <div class="options true-false">
+                                <label><input type="radio" name="q${questionCounter}" value="false"> FALSO</label>
+                                <label><input type="radio" name="q${questionCounter}" value="true"> VERDADERO</label>
+                            </div>
+                        `;
+                    } else if (section.type === 'style-type') {
+                        questionHTML += `
+                            <div class="options">
+                                <label><input type="radio" name="q${questionCounter}" value="estilo"> ESTILO DE LIDERAZGO</label>
+                                <label><input type="radio" name="q${questionCounter}" value="tipo"> TIPO DE LIDERAZGO</label>
+                            </div>
+                        `;
+                    } else if (section.type === 'checkbox') {
+                        questionHTML = `<p><strong>${questionCounter}.</strong> ${question.text}</p>
+                            <div class="options" style="flex-direction: column;">`;
+                        
+                        question.options.forEach(option => {
+                            questionHTML += `<label><input type="checkbox" name="q${questionCounter}" value="${option.value}"> ${option.text}</label>`;
+                        });
+                        
+                        questionHTML += `</div>`;
+                    } else if (section.type === 'relate' || section.type === 'multiple') {
+                        questionHTML += `<div class="options" style="flex-direction: column;">`;
+                        
+                        question.options.forEach(option => {
+                            questionHTML += `<label><input type="radio" name="q${questionCounter}" value="${option.value}"> ${option.text}</label>`;
+                        });
+                        
+                        questionHTML += `</div>`;
+                    }
+                    
+                    questionDiv.innerHTML = questionHTML;
+                    form.appendChild(questionDiv);
+                    
+                    // Guardar el mapeo de pregunta
+                    questionMapping.push({
+                        displayedNumber: questionCounter,
+                        originalSection: section.title,
+                        correctAnswer: question.correct
+                    });
+                    
+                    questionCounter++;
+                });
+            });
+            
+            // Agregar botón de envío
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'btn-container';
+            btnContainer.innerHTML = '<button type="button" id="submit-btn">Calificar Evaluación</button>';
+            form.appendChild(btnContainer);
+            
+            // Agregar event listener al botón
+            document.getElementById('submit-btn').addEventListener('click', submitForm);
+        }
+
+        // Función para enviar el formulario y calificar
+        function submitForm() {
+            let score = 0;
+            const totalQuestions = 31;
+            const bonusPoints = 5;
+
+            // Función para calificar preguntas de radio
+            function gradeRadio(questionNumber) {
+                const selected = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+                if (selected) {
+                    const mapping = questionMapping.find(m => m.displayedNumber === questionNumber);
+                    if (mapping && selected.value === mapping.correctAnswer) {
+                        score++;
+                    }
+                }
+            }
+
+            // Calificar todas las preguntas
+            for(let i = 1; i <= totalQuestions; i++) {
+                // Pregunta 21 es la única de checkbox (en el nuevo orden)
+                const mapping = questionMapping.find(m => m.displayedNumber === i);
+                if (mapping && mapping.originalSection === "Elementos de Liderazgo Humanista") {
+                    const selectedCheckboxes = Array.from(document.querySelectorAll(`input[name="q${i}"]:checked`)).map(cb => cb.value);
+                    const correctCheckboxes = mapping.correctAnswer;
+                    let checkboxScore = 0;
+                    correctCheckboxes.forEach(ans => { 
+                        if(selectedCheckboxes.includes(ans)) checkboxScore += 0.25; 
+                    });
+                    score += checkboxScore;
+                } else {
+                    gradeRadio(i);
+                }
+            }
+
+            // Agregar puntos extra
+            const scoreWithBonus = Math.min(totalQuestions, score + bonusPoints);
+            const percentage = Math.min(100, ((scoreWithBonus / totalQuestions) * 100).toFixed(2));
+
+            // Deshabilitar todas las preguntas
+            document.querySelectorAll('input').forEach(input => {
+                input.disabled = true;
+            });
+            document.getElementById('evaluation-form').classList.add('disabled');
+            
+            // Mostrar resultados
+            document.getElementById('score').innerHTML = `
+                Puntuación: ${score.toFixed(2)} / ${totalQuestions} <br>
+                <small>Puntuación con puntos extra: ${scoreWithBonus.toFixed(2)} / ${totalQuestions} (${percentage}%)</small>
+            `;
+            document.getElementById('results').style.display = 'block';
+            
+            // MOSTRAR U OCULTAR BOTÓN DE DESCARGA SEGÚN PORCENTAJE
+            if (percentage >= 80) {
+                document.getElementById('download-container').style.display = 'block';
+                document.getElementById('not-passed-message').style.display = 'none';
+            } else {
+                document.getElementById('download-container').style.display = 'none';
+                document.getElementById('not-passed-message').style.display = 'block';
+            }
+            
+            document.getElementById('results').scrollIntoView({behavior:'smooth'});
+            
+            // Cambiar el botón a "Evaluación Completada"
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.textContent = 'Evaluación Completada';
+            submitBtn.disabled = true;
+            submitBtn.style.backgroundColor = '#7f8c8d';
+            
+            // ENVIAR RESULTADOS A GOOGLE SHEETS (con puntos extra)
+            enviarResultadosGoogle(scoreWithBonus.toFixed(2), percentage);
+            
+            // Marcar actividad como completada
+            markActivityCompleted();
+        }
+
+        // Función para enviar resultados a Google Sheets
+        function enviarResultadosGoogle(calificacion, porcentaje) {
+            // Obtener información del usuario desde localStorage
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                console.error('No se pudo obtener la información del usuario');
+                alert('Error: No se encontró información del usuario. Por favor, inicia sesión nuevamente.');
+                return;
+            }
+            
+            // Crear formulario con los datos
+            const formData = new FormData();
+            formData.append('nombre', currentUser.fullname);
+            formData.append('mep', currentUser.companyId);
+            formData.append('calificacion', calificacion);
+            formData.append('porcentaje', porcentaje + '%');
+            
+            // Enviar datos usando fetch
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Datos enviados correctamente:', data);
+            })
+            .catch(error => {
+                console.error('Error al enviar datos:', error);
+            });
+        }
+        
+        // ==========================
+        // DESCARGA DE FICHA (solo si se alcanza 80% o más)
+        // ==========================
+        document.getElementById('download-btn').addEventListener('click', function(){
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if(!currentUser) {
+                alert('Error: No se encontró información del usuario.');
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = 1000;
+            canvas.height = 700;
+            const ctx = canvas.getContext('2d');
+
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, "#f0f8ff");
+            gradient.addColorStop(1, "#ffffff");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = "#2196F3";
+            ctx.lineWidth = 8;
+            ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
+
+            ctx.fillStyle = "#333";
+            ctx.font = "bold 34px Georgia";
+            ctx.textAlign = "center";
+            ctx.fillText("Comprobante de Finalización del Curso de Liderazgo", canvas.width/2, 180);
+            
+
+            ctx.font = "28px Arial";
+            ctx.fillStyle = "#000";
+            ctx.fillText(`Se otorga el presente comprobante a`, canvas.width/2, 260); 
+
+            ctx.font = "bold 32px 'Times New Roman'";
+            ctx.fillStyle = "#2196F3";
+            ctx.fillText(currentUser.fullname.toUpperCase(), canvas.width/2, 360); 
+
+            ctx.font = "24px Arial";
+            ctx.fillStyle = "#333";
+            ctx.fillText(`MEP: ${currentUser.companyId}`, canvas.width/2, 450); 
+            ctx.fillText(`Finalizado el: ${new Date().toLocaleDateString()}`, canvas.width/2, 530); 
+
+            ctx.font = "italic 16px Arial";
+            ctx.fillStyle = "#666";
+            ctx.textAlign = "left";
+            ctx.fillText("El comprobante no tiene validez legal y solo puede ser canjeado", 60, 620);
+            ctx.fillText("en el Área de Capacitación.", 60, 640);
+            const link = document.createElement('a');
+            link.download = `Comprobante_${currentUser.fullname.toUpperCase()}_Liderazgo.jpg`;
+            link.href = canvas.toDataURL('image/jpeg');
+            link.click();
+
+            localStorage.removeItem(`progress_${currentUser.companyId}_${currentUser.fullname}`);
+            localStorage.removeItem('currentUser');
+            window.location.href = '../index.html';
+        });
+
+        // ==========================
+        // SISTEMA DE SINCRONIZACIÓN
+        // ==========================
+        
+        // ID de la actividad actual (debe coincidir con el ID en la página principal)
+        const CURRENT_ACTIVITY_ID = 'activity-4-1';
+        
+        // Función para marcar la actividad como completada
+        function markActivityCompleted() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            // Obtener el progreso actual del usuario
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+            
+            // Marcar esta actividad como completada
+            progressData[CURRENT_ACTIVITY_ID] = true;
+            
+            // Guardar en localStorage
+            localStorage.setItem(progressKey, JSON.stringify(progressData));
+            
+            // Disparar evento para sincronizar otras pestañas
+            window.dispatchEvent(new Event('storage'));
+            
+            // Mostrar mensaje de progreso
+            document.getElementById('progress-message').style.display = 'block';
+            
+            return true;
+        }
+        
+        // Función para verificar si la actividad ya está completada
+        function checkActivityStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return false;
+            
+            const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+            const savedProgress = localStorage.getItem(progressKey);
+            
+            if (savedProgress) {
+                const progressData = JSON.parse(savedProgress);
+                if (progressData[CURRENT_ACTIVITY_ID]) {
+                    document.getElementById('progress-message').style.display = 'block';
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Cuando la página carga, generar el formulario y verificar el estado de la actividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generar el formulario con secciones aleatorias
+            generateForm();
+            
+            // Verificar si hay un usuario logueado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                alert('Por favor, inicia sesión en el curso primero.');
+                // No crear usuario de prueba - redirigir o mostrar mensaje
+                return;
+            }
+            
+            // Si la actividad ya está completada, deshabilitar el formulario
+            if (checkActivityStatus()) {
+                document.querySelectorAll('input').forEach(input => {
+                    input.disabled = true;
+                });
+                document.getElementById('submit-btn').textContent = 'Evaluación Completada';
+                document.getElementById('submit-btn').disabled = true;
+                document.getElementById('submit-btn').style.backgroundColor = '#7f8c8d';
+            }
+        });
+        
+        // Escuchar eventos de storage para actualizaciones desde otras pestañas
+        window.addEventListener('storage', function(e) {
+            if (e.key && e.key.startsWith('progress_')) {
+                checkActivityStatus();
+            }
+        });
+    </script>
+</body>
+</html>

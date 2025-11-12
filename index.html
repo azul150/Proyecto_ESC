@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Capacitación en Línea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #2f88c4;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .welcome-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+        
+        .welcome-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .welcome-section h2 i {
+            color: var(--secondary-color);
+        }
+        
+        .important-notice {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .important-notice h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .courses-section {
+            margin-bottom: 30px;
+        }
+        
+        .courses-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .courses-section h2 i {
+            color: var(--secondary-color);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid #2a4a91;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            background: linear-gradient(135deg,  #095080);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .course-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-timer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .timer-icon {
+            margin-right: 8px;
+        }
+        
+        .course-description {
+            margin-bottom: 15px;
+            color: #555;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .notices-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .certificate-notice {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .certificate-notice h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #7f8c8d;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .courses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-section {
+                padding: 20px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .welcome-section {
+                padding: 15px;
+            }
+            
+            .welcome-section h2, .courses-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .important-notice, .certificate-notice {
+                padding: 12px;
+            }
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Capacitación en Línea</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="welcome-section fade-in">
+            <h2><i class="fas fa-graduation-cap"></i> Bienvenido(a).</h2>
+            <p>Estimado participante, le damos la más cordial bienvenida al programa de capacitación en línea. A continuación, encontrará información importante sobre el funcionamiento de los cursos.</p>
+        </section>
+        
+        <section class="courses-section fade-in">
+            <h2><i class="fas fa-book-open"></i> Cursos Disponibles</h2>
+            <div class="courses-grid">
+                <!-- Curso 1 -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Trabajo en Equipo</h3>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-timer">
+                            <span class="timer-icon"><i class="fas fa-clock"></i></span>
+                            <span>Duración: 2 días</span>
+                        </div>
+                        <p class="course-description">Desarrolle habilidades colaborativas, comunicación efectiva y coordinación para alcanzar objetivos comunes de manera eficiente.</p>
+                        <a href="Trabajo en Equipo/index.html" class="btn course-btn">Acceder al Curso</a>
+                    </div>
+                </div>
+                
+                <!-- Curso 2 -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Comunicación Efectiva</h3>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-timer">
+                            <span class="timer-icon"><i class="fas fa-clock"></i></span>
+                            <span>Duración: 2 días</span>
+                        </div>
+                        <p class="course-description">Desarrolle habilidades para una comunicación clara y efectiva en el entorno laboral.</p>
+                        <a href="Comunicacion Efectiva/index.html" class="btn course-btn">Acceder al Curso</a>
+                    </div>
+                </div>
+                
+                <!-- Curso 3 -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Liderazgo</h3>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-timer">
+                            <span class="timer-icon"><i class="fas fa-clock"></i></span>
+                            <span>Duración: 2 días</span>
+                        </div>
+                        <p class="course-description">Fortalezca sus capacidades de liderazgo y colaboración en equipos de trabajo.</p>
+                        <a href="Curso-liderazgo/index.html" class="btn course-btn">Acceder al Curso</a>
+                    </div>
+                </div>
+        </section>
+        
+        <div class="notices-section">
+            <div class="important-notice fade-in">
+                <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
+                <p>Cada curso tiene una duración establecida de <strong>2 días</strong> y cuenta con un temporizador que, al llegar a cero, eliminará automáticamente el progreso de las actividades realizadas. Le recomendamos gestionar adecuadamente su tiempo para completar todas las actividades dentro del plazo establecido.</p>
+            </div>
+            <div class="certificate-notice fade-in">
+                <h3><i class="fas fa-file-certificate"></i> Acerca del Comprobante de Finalización</h3>
+                <p>El comprobante que se emite al concluir satisfactoriamente el curso <strong>no posee validez oficial</strong> y no constituye un documento acreditativo con reconocimiento externo. Dicho comprobante únicamente puede ser canjeado en el Área de Capacitación para fines de registro interno.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IE &copy; 2025. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseButtons = document.querySelectorAll('.course-btn');
+        });
+    </script>
+</body>
+</html>
