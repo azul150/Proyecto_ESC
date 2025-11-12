@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Comunicación Efectiva</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            background-color: #e9f7fe;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        .question {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 3px solid #3498db;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        .results {
+            display: none;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            border-left: 4px solid #2ecc71;
+            text-align: center;
+        }
+        .score-display {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .percentage {
+            font-size: 2rem;
+            color: #2980b9;
+            margin: 10px 0;
+        }
+        h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        .section-title {
+            background-color: #34495e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 25px 0 15px 0;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        input:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .module-btn {
+            background-color: #27ae60;
+            display: none;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .module-btn:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .module-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Nuevos estilos para el mensaje de progreso */
+        .progress-message {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+            display: none;
+        }
+        
+        /* Estilos para las opciones */
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        
+        /* =========================== */
+        /* MEDIA QUERIES RESPONSIVE */
+        /* =========================== */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1.1rem;
+                padding: 15px;
+                line-height: 1.5;
+            }
+            
+            .header {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .instructions {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .question {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+            
+            .section-title {
+                padding: 8px;
+                margin: 20px 0 12px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.2rem;
+            }
+            
+            button {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+            
+            .module-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .results {
+                padding: 20px;
+            }
+            
+            .score-display {
+                font-size: 1.3rem;
+            }
+            
+            .percentage {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 1rem;
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header h2 {
+                font-size: 1.1rem;
+            }
+            
+            .question {
+                padding: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.1rem;
+            }
+            
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+            }
+            
+            .module-btn {
+                width: 90%;
+                padding: 12px;
+            }
+            
+            .score-display {
+                font-size: 1.2rem;
+            }
+            
+            .percentage {
+                font-size: 1.5rem;
+            }
+            
+            input[type="radio"] {
+                transform: scale(1.1);
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                font-size: 0.95rem;
+            }
+            
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            
+            .header h2 {
+                font-size: 1rem;
+            }
+            
+            .score-display {
+                font-size: 1.1rem;
+            }
+            
+            .percentage {
+                font-size: 1.4rem;
+            }
+            
+            .module-btn {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Curso: Comunicación Efectiva</h1>
+        <h2>Evaluación Diagnóstica</h2>
+    </div>
+
+    <form id="evaluation-form">
+        <div class="section-title">
+            <h2>Sección 1: Preguntas de opción múltiple</h2>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instrucciones:</h3>
+            <p>Selecciona la opción que consideres adecuada para cada pregunta.</p>
+        </div>
+        
+        <div class="question">
+            <p>1. ¿Cuáles son los 2 elementos más importantes en la comunicación?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q1" value="emisor-ambiente"> Emisor y ambiente</label>
+                <label class="option-label"><input type="radio" name="q1" value="canal-codificador"> Canal y codificador</label>
+                <label class="option-label"><input type="radio" name="q1" value="emisor-receptor"> Emisor y receptor</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. ¿Cuál es la función principal del emisor?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q2" value="escucha-activa"> Tener una escucha activa</label>
+                <label class="option-label"><input type="radio" name="q2" value="codificar"> Codificar la información</label>
+                <label class="option-label"><input type="radio" name="q2" value="buscar-ambiente"> Buscar un buen ambiente</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Cuáles son los tipos de comunicación?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q3" value="verbal-no-verbal-escrita"> Verbal, no verbal y escrita</label>
+                <label class="option-label"><input type="radio" name="q3" value="emisor-receptor-mensaje"> Emisor, receptor y mensaje</label>
+                <label class="option-label"><input type="radio" name="q3" value="fisica-semantica-fisiologia"> Física, semántica y fisiología</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Cómo se llama el medio por el cual se envía el mensaje?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q4" value="canal"> Canal</label>
+                <label class="option-label"><input type="radio" name="q4" value="codificador"> Codificador</label>
+                <label class="option-label"><input type="radio" name="q4" value="referente"> Referente</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Cuáles son los tipos de comunicación dentro de la empresa?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q5" value="lineal-transversal"> Lineal y transversal</label>
+                <label class="option-label"><input type="radio" name="q5" value="ascendente-descendente-horizontal"> Ascendente, descendente, horizontal</label>
+                <label class="option-label"><input type="radio" name="q5" value="horizontal-vertical"> Horizontal y vertical</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>6. Selecciona 2 barreras de comunicación</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q6" value="fisicas-semanticas"> Barreras físicas, barreras semánticas</label>
+                <label class="option-label"><input type="radio" name="q6" value="pared-sordo-muda"> Pared y persona sordo-muda</label>
+                <label class="option-label"><input type="radio" name="q6" value="muda-ruido"> Persona muda-ruido</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>7. ¿Qué permite el proceso de la comunicación efectiva?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q7" value="conocer-personas"> Conocer personas y hacer lazos afectivos</label>
+                <label class="option-label"><input type="radio" name="q7" value="aprender-idiomas"> Aprender idiomas</label>
+                <label class="option-label"><input type="radio" name="q7" value="intercambiar-ideas"> Intercambiar ideas, pensamientos o sentimientos</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>8. ¿Qué significa tener una escucha activa?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q8" value="escuchar-ruidos"> Escuchar bien los ruidos y voces de los demás</label>
+                <label class="option-label"><input type="radio" name="q8" value="entender-ideas"> Entender ideas, sentimientos y pensamientos</label>
+                <label class="option-label"><input type="radio" name="q8" value="aprender-cosas"> Aprender cosas nuevas y diferentes</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>9. ¿Cuál de las siguientes es una barrera fisiológica en la comunicación?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q9" value="evento-musica"> Estar en un evento de música</label>
+                <label class="option-label"><input type="radio" name="q9" value="no-atencion"> No poner atención</label>
+                <label class="option-label"><input type="radio" name="q9" value="no-saber-leer"> No saber leer</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>10. ¿Cuál es el medio para interactuar dentro de una organización?</p>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q10" value="comunicacion"> Comunicación</label>
+                <label class="option-label"><input type="radio" name="q10" value="ambiente"> Ambiente organizacional</label>
+                <label class="option-label"><input type="radio" name="q10" value="canal"> Canal</label>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <button type="button" id="submit-btn">Enviar Evaluación</button>
+        </div>
+    </form>
+
+    <div class="results" id="results">
+        <h3>Resultados</h3>
+        <div class="score-display">Puntuación: <span id="score"></span></div>
+        <div class="percentage" id="percentage"></div>
+        
+        <!-- Mensaje de progreso actualizado -->
+        <div class="progress-message" id="progress-message">
+            ✅ Progreso actualizado: Esta evaluación ha sido marcada como completada
+        </div>
+        
+        <div class="module-container">
+            <button class="module-btn" id="module-btn">Módulo 1</button>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+        const correctAnswers = {
+            q1: "emisor-receptor",
+            q2: "codificar",
+            q3: "verbal-no-verbal-escrita",
+            q4: "canal",
+            q5: "ascendente-descendente-horizontal",
+            q6: "fisicas-semanticas",
+            q7: "intercambiar-ideas",
+            q8: "entender-ideas",
+            q9: "no-saber-leer",
+            q10: "comunicacion"
+        };
+
+        let score = 0;
+        const totalQuestions = 10;
+
+        // Deshabilitar todos los botones de radio
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => {
+            radio.disabled = true;
+        });
+
+        // Calcular puntuación
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === correctAnswers[`q${i}`]) {
+                score++;
+            }
+        }
+
+        const percentage = ((score / totalQuestions) * 100).toFixed(2);
+
+        // Mostrar resultados
+        document.getElementById('score').textContent = `${score} / ${totalQuestions}`;
+        document.getElementById('percentage').textContent = `${percentage}%`;
+        document.getElementById('results').style.display = 'block';
+        
+        // Ocultar botón de enviar y mostrar botón de módulo
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('module-btn').style.display = 'block';
+        
+        // Desplazar a resultados
+        document.getElementById('results').scrollIntoView({behavior:'smooth'});
+        
+        markExamAsCompleted();
+    });
+
+    // Función para marcar el examen como completado en el progreso
+    function markExamAsCompleted() {
+        // Obtener información del usuario
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            console.log('Usuario no identificado');
+            return;
+        }
+        
+        // ID de la actividad del examen diagnóstico (debe coincidir con el ID en la página principal)
+        const EXAM_ACTIVITY_ID = 'activity-0-1';
+        const progressKey = `progress_${currentUser.companyId}_${currentUser.fullname}`;
+        
+        // Obtener el progreso actual
+        const savedProgress = localStorage.getItem(progressKey);
+        let progressData = savedProgress ? JSON.parse(savedProgress) : {};
+        
+        // Marcar el examen como completado
+        progressData[EXAM_ACTIVITY_ID] = true;
+        
+        // Guardar en localStorage
+        localStorage.setItem(progressKey, JSON.stringify(progressData));
+        
+        // Mostrar mensaje de confirmación
+        document.getElementById('progress-message').style.display = 'block';
+        
+        console.log('Examen marcado como completado en el progreso');
+        
+        // Disparar evento de storage para sincronizar otras pestañas
+        window.dispatchEvent(new Event('storage'));
+    }
+
+    // Acción para el botón de módulo
+    document.getElementById('module-btn').addEventListener('click', function() {
+        // Primero asegurarnos de marcar el examen como completado
+        markExamAsCompleted();
+        
+        // Redirigir al Módulo 1
+        window.location.href = '../INTRODUCCION/modulo1.html';
+    });
+    </script>
+</body>
+</html>
